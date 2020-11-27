@@ -17,7 +17,6 @@
 		F3EFC8682570FE6200637A55 /* CountryTopChartsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8672570FE6200637A55 /* CountryTopChartsUITests.swift */; };
 		F3EFC8792571010400637A55 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8782571010400637A55 /* Presenter.swift */; };
 		F3EFC87B2571026F00637A55 /* CountriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC87A2571026F00637A55 /* CountriesAPI.swift */; };
-		F3EFC87D257128B900637A55 /* CountryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC87C257128B900637A55 /* CountryResult.swift */; };
 		F3EFC87F2571294600637A55 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC87E2571294600637A55 /* Country.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +54,6 @@
 		F3EFC8692570FE6200637A55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3EFC8782571010400637A55 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		F3EFC87A2571026F00637A55 /* CountriesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesAPI.swift; sourceTree = "<group>"; };
-		F3EFC87C257128B900637A55 /* CountryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryResult.swift; sourceTree = "<group>"; };
 		F3EFC87E2571294600637A55 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,7 +148,6 @@
 		F3EFC8762571003D00637A55 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F3EFC87C257128B900637A55 /* CountryResult.swift */,
 				F3EFC87E2571294600637A55 /* Country.swift */,
 			);
 			path = Models;
@@ -297,7 +294,6 @@
 			files = (
 				F3EFC87F2571294600637A55 /* Country.swift in Sources */,
 				F3EFC87B2571026F00637A55 /* CountriesAPI.swift in Sources */,
-				F3EFC87D257128B900637A55 /* CountryResult.swift in Sources */,
 				F3EFC84A2570FE6100637A55 /* ViewController.swift in Sources */,
 				F3EFC8462570FE6100637A55 /* AppDelegate.swift in Sources */,
 				F3EFC8792571010400637A55 /* Presenter.swift in Sources */,

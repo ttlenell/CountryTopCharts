@@ -9,5 +9,5 @@
 import Foundation
 
 struct Country: Codable {
-    var region: String?
+    var name: String?
 }

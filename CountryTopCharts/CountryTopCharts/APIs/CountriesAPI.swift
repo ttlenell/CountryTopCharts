@@ -27,19 +27,16 @@ class CountriesAPI {
         
      } else {
         //inte error
-        var result: CountryResult?
-        print(data)
+        var result: [Country]?
         guard let data = data else {return}
         do {
-            result = try JSONDecoder().decode(CountryResult.self, from: data)
-            print(result)
+            result = try JSONDecoder().decode([Country].self, from: data)
+            
         }
-        catch {
-            print(result)
-            print("error parsing JSON")
+        catch let jsonError as NSError {
+          print("JSON decode failed: \(jsonError.localizedDescription)")
         }
-        
-        print("hej")
+        print(result)
         }})
     task.resume() }
     

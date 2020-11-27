@@ -11,3 +11,7 @@ import Foundation
 struct CountryResult: Codable {
     var countries: [Country]?
 }
+
+
+    
+
