@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		F3EFC8462570FE6100637A55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8452570FE6100637A55 /* AppDelegate.swift */; };
 		F3EFC8482570FE6100637A55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8472570FE6100637A55 /* SceneDelegate.swift */; };
-		F3EFC84A2570FE6100637A55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8492570FE6100637A55 /* ViewController.swift */; };
+		F3EFC84A2570FE6100637A55 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8492570FE6100637A55 /* CountryListViewController.swift */; };
 		F3EFC84D2570FE6100637A55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EFC84B2570FE6100637A55 /* Main.storyboard */; };
 		F3EFC84F2570FE6200637A55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3EFC84E2570FE6200637A55 /* Assets.xcassets */; };
 		F3EFC8522570FE6200637A55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EFC8502570FE6200637A55 /* LaunchScreen.storyboard */; };
 		F3EFC85D2570FE6200637A55 /* CountryTopChartsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC85C2570FE6200637A55 /* CountryTopChartsTests.swift */; };
 		F3EFC8682570FE6200637A55 /* CountryTopChartsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8672570FE6200637A55 /* CountryTopChartsUITests.swift */; };
-		F3EFC8792571010400637A55 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8782571010400637A55 /* Presenter.swift */; };
+		F3EFC8792571010400637A55 /* CountriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8782571010400637A55 /* CountriesPresenter.swift */; };
 		F3EFC87B2571026F00637A55 /* CountriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC87A2571026F00637A55 /* CountriesAPI.swift */; };
 		F3EFC87F2571294600637A55 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC87E2571294600637A55 /* Country.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +41,7 @@
 		F3EFC8422570FE6100637A55 /* CountryTopCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryTopCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EFC8452570FE6100637A55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EFC8472570FE6100637A55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F3EFC8492570FE6100637A55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F3EFC8492570FE6100637A55 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		F3EFC84C2570FE6100637A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3EFC84E2570FE6200637A55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3EFC8512570FE6200637A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		F3EFC8632570FE6200637A55 /* CountryTopChartsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountryTopChartsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EFC8672570FE6200637A55 /* CountryTopChartsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTopChartsUITests.swift; sourceTree = "<group>"; };
 		F3EFC8692570FE6200637A55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3EFC8782571010400637A55 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		F3EFC8782571010400637A55 /* CountriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesPresenter.swift; sourceTree = "<group>"; };
 		F3EFC87A2571026F00637A55 /* CountriesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesAPI.swift; sourceTree = "<group>"; };
 		F3EFC87E2571294600637A55 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,7 +110,7 @@
 				F3EFC8752571002B00637A55 /* APIs */,
 				F3EFC8452570FE6100637A55 /* AppDelegate.swift */,
 				F3EFC8472570FE6100637A55 /* SceneDelegate.swift */,
-				F3EFC8492570FE6100637A55 /* ViewController.swift */,
+				F3EFC8492570FE6100637A55 /* CountryListViewController.swift */,
 				F3EFC84B2570FE6100637A55 /* Main.storyboard */,
 				F3EFC84E2570FE6200637A55 /* Assets.xcassets */,
 				F3EFC8502570FE6200637A55 /* LaunchScreen.storyboard */,
@@ -156,7 +156,7 @@
 		F3EFC8772571005300637A55 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				F3EFC8782571010400637A55 /* Presenter.swift */,
+				F3EFC8782571010400637A55 /* CountriesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -294,9 +294,9 @@
 			files = (
 				F3EFC87F2571294600637A55 /* Country.swift in Sources */,
 				F3EFC87B2571026F00637A55 /* CountriesAPI.swift in Sources */,
-				F3EFC84A2570FE6100637A55 /* ViewController.swift in Sources */,
+				F3EFC84A2570FE6100637A55 /* CountryListViewController.swift in Sources */,
 				F3EFC8462570FE6100637A55 /* AppDelegate.swift in Sources */,
-				F3EFC8792571010400637A55 /* Presenter.swift in Sources */,
+				F3EFC8792571010400637A55 /* CountriesPresenter.swift in Sources */,
 				F3EFC8482570FE6100637A55 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
