@@ -8,17 +8,17 @@
 
 import Foundation
 
-class Presenter {
+class CountriesPresenter {
     
-    let countyCode: String = ""
     let countriesAPI = CountriesAPI()
-    
-    
+    let countries: [Country]? = []
     
     // metoder för att använda APIs
     
-    func logResponse() {
+    func getCountries() {
         countriesAPI.getCountries()
+        
+        
     }
     
 }

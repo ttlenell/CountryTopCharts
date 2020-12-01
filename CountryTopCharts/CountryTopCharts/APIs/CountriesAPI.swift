@@ -34,7 +34,6 @@ class CountriesAPI {
         catch let jsonError as NSError {
           print("JSON decode failed: \(jsonError.localizedDescription)")
         }
-        print(self.countries)
         }})
     task.resume() }
     
