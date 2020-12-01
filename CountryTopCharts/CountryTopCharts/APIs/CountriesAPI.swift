@@ -5,8 +5,12 @@
 //  Created by Tobias Classon on 2020-11-27.
 //  Copyright © 2020 Tobias Classon. All rights reserved.
 //
+<<<<<<< HEAD
 //  hej
 
+=======
+// hej
+>>>>>>> 4ce34bfa50db5df2c349f5017589dca0b9d4284b
 import Foundation
 
 class CountriesAPI {
