@@ -26,7 +26,7 @@ class CountriesAPI {
         //error
         
      } else {
-        //inte error
+        //inte error!
         guard let data = data else {return}
         do {
             self.countries = try JSONDecoder().decode([Country].self, from: data)
