@@ -23,7 +23,7 @@ class CountriesAPI {
     request.addValue("application/json", forHTTPHeaderField: "Accept")
      let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
      if (error != nil) {
-        //error
+        //error!
         
      } else {
         //inte error
