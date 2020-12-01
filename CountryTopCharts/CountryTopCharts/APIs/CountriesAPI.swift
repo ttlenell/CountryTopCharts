@@ -35,6 +35,7 @@ class CountriesAPI {
           print("JSON decode failed: \(jsonError.localizedDescription)")
         }
         print(self.countries)
+        // hejsan
         }})
     task.resume() }
     
