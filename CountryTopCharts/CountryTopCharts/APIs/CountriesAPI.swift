@@ -5,8 +5,12 @@
 //  Created by Tobias Classon on 2020-11-27.
 //  Copyright © 2020 Tobias Classon. All rights reserved.
 //
+<<<<<<< HEAD
 // hej2
 
+=======
+// hejsan
+>>>>>>> master
 import Foundation
 
 class CountriesAPI {
@@ -36,7 +40,6 @@ class CountriesAPI {
           print("JSON decode failed: \(jsonError.localizedDescription)")
         }
         print(self.countries)
-        // hejsan
         }})
     task.resume() }
     
