@@ -11,16 +11,25 @@ import UIKit
 class CountryListViewController: UIViewController {
     
     let countriesPresenter = CountriesPresenter()
-    let countriesAPI = CountriesAPI()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        countriesPresenter.getCountries()
         
         
-        print(countriesAPI.countries)
+        // antingen göra api asynkront och köra resten när vi vet att countries har ett värde
+        // eller trigga en rerender när countries ändras
+        
+        
+        // Kör api för att ge countries array ett värde
+        // countriesPresenter.getCountries()
+        
+        // När api.countries fått ett värde ska presenter.countries uppdateras
+        // observer??
+        
+        // När countriesPresenter.countries uppdateras ska sidan renderas om med ny data
+        // hur triggar med rerender?
         
     }
 
