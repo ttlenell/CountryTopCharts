@@ -10,9 +10,8 @@ import Foundation
 
 class CountriesAPI {
     
+    var countries: [Country]?
     let urlString: String = "https://restcountries.eu/rest/v2/all"
-    
-    // get All Countries, för att visa i lista
     
     
     func getCountries(){
@@ -27,16 +26,15 @@ class CountriesAPI {
         
      } else {
         //inte error
-        var result: [Country]?
         guard let data = data else {return}
         do {
-            result = try JSONDecoder().decode([Country].self, from: data)
+            self.countries = try JSONDecoder().decode([Country].self, from: data)
             
         }
         catch let jsonError as NSError {
           print("JSON decode failed: \(jsonError.localizedDescription)")
         }
-        print(result)
+        print(self.countries)
         }})
     task.resume() }
     
