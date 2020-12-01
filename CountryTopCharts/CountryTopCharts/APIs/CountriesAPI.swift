@@ -7,7 +7,7 @@
 //
 // hejsan!!
 import Foundation
-
+// thomas kommentar
 class CountriesAPI {
     
     var countries: [Country]?
