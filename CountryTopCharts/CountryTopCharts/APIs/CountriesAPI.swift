@@ -5,9 +5,9 @@
 //  Created by Tobias Classon on 2020-11-27.
 //  Copyright © 2020 Tobias Classon. All rights reserved.
 //
-// hejsan!!
+
 import Foundation
-// thomas kommentar
+
 class CountriesAPI {
     
     var countries: [Country]?
