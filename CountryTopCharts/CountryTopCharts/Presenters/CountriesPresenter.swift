@@ -16,9 +16,8 @@ class CountriesPresenter {
     // metoder för att använda APIs
     
     func getCountries() {
+        print("running")
         countriesAPI.getCountries()
-        
-        
     }
     
 }
