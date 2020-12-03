@@ -10,11 +10,13 @@ import Foundation
 
 class CountriesAPI {
     
+    
+    
     var countries: [Country]?
     let urlString: String = "https://restcountries.eu/rest/v2/all"
     
     
-    func getCountries(){
+    func getCountries() {
     let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
     let session = URLSession.shared
     request.httpMethod = "GET"
@@ -24,10 +26,12 @@ class CountriesAPI {
      if (error != nil) {
         //error!
         
+        
      } else {
         //inte error!
         guard let data = data else {return}
         do {
+            print("api call complete")
             self.countries = try JSONDecoder().decode([Country].self, from: data)
             
         }
