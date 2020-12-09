@@ -12,7 +12,7 @@ class CountriesAPI {
     
     
     
-    var countries: [Country]?
+    static var countries: [Country]?
     let urlString: String = "https://restcountries.eu/rest/v2/all"
     
     
@@ -32,7 +32,7 @@ class CountriesAPI {
         guard let data = data else {return}
         do {
             print("api call complete")
-            self.countries = try JSONDecoder().decode([Country].self, from: data)
+            CountriesAPI.self.countries = try JSONDecoder().decode([Country].self, from: data)
             
         }
         catch let jsonError as NSError {
