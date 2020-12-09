@@ -32,7 +32,9 @@ class CountriesAPI {
         guard let data = data else {return}
         do {
             print("api call complete")
-            CountriesAPI.self.countries = try JSONDecoder().decode([Country].self, from: data)
+            
+            CountriesData.countries = try JSONDecoder().decode([Country].self, from: data)
+            
             NotificationCenter.default.post(name: Notification.Name("CountriesUpdated"), object: nil)
             
         }

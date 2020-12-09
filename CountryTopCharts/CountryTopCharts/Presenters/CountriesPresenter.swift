@@ -11,7 +11,7 @@ import Foundation
 class CountriesPresenter {
     
     let countriesAPI = CountriesAPI()
-    let countries: [Country]? = []
+    var countries: [Country]? = CountriesData.countries
     
     // metoder för att använda APIs
     
@@ -20,4 +20,7 @@ class CountriesPresenter {
         countriesAPI.getCountries()
     }
     
+    func updateCountries() {
+        self.countries = CountriesData.countries
+    }
 }

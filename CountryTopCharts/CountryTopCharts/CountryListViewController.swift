@@ -12,13 +12,9 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet var countriesTableView: UITableView!
     let countriesPresenter = CountriesPresenter()
-    let countriesAPI = CountriesAPI()
-    
-    var countries: [Country]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        countries = CountriesAPI.countries
         
         let nib = UINib(nibName: "CountryTableViewCell", bundle: nil)
         countriesTableView.register(nib, forCellReuseIdentifier: "CountryTableViewCell")
@@ -29,23 +25,11 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("CountriesUpdated"), object: nil)
         
-        // antingen göra api asynkront och köra resten när vi vet att countries har ett värde
-        // eller trigga en rerender när countries ändras
-        
-        
-        // Kör api för att ge countries array ett värde
-        // countriesPresenter.getCountries()
-        
-        // När api.countries fått ett värde ska presenter.countries uppdateras
-        // observer??
-        
-        // När countriesPresenter.countries uppdateras ska sidan renderas om med ny data
-        // hur triggar med rerender?
-        
     }
     
     @objc func countriesUpdatedNotificationRecieved () {
-        countries = CountriesAPI.countries
+        
+        countriesPresenter.updateCountries()
         
         DispatchQueue.main.async {
             self.countriesTableView.reloadData()
@@ -53,13 +37,8 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
 
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        countries = CountriesAPI.countries
-        
-        self.countriesTableView.reloadData()
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let countries = countries else {
+        guard let countries = countriesPresenter.countries else {
             print("returning 0 because countries is nil")
             return 0
             
@@ -70,7 +49,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = countriesTableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell", for: indexPath) as! CountryTableViewCell
-        guard let countries = countries else {
+        guard let countries = countriesPresenter.countries else {
             return cell
         }
         cell.countryLabel.text = countries[indexPath.row].name
