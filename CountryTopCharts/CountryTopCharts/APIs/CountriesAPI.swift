@@ -33,6 +33,7 @@ class CountriesAPI {
         do {
             print("api call complete")
             CountriesAPI.self.countries = try JSONDecoder().decode([Country].self, from: data)
+            NotificationCenter.default.post(name: Notification.Name("CountriesUpdated"), object: nil)
             
         }
         catch let jsonError as NSError {

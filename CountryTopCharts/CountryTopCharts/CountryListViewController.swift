@@ -27,6 +27,8 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         countriesPresenter.getCountries()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("CountriesUpdated"), object: nil)
+        
         // antingen göra api asynkront och köra resten när vi vet att countries har ett värde
         // eller trigga en rerender när countries ändras
         
@@ -41,10 +43,19 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         // hur triggar med rerender?
         
     }
+    
+    @objc func countriesUpdatedNotificationRecieved () {
+        countries = CountriesAPI.countries
+        
+        DispatchQueue.main.async {
+            self.countriesTableView.reloadData()
+        }
+        
+    }
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         countries = CountriesAPI.countries
-        print(countries)
+        
         self.countriesTableView.reloadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
