@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SelectedCountryViewController: UIViewController {
     
@@ -33,30 +34,28 @@ class SelectedCountryViewController: UIViewController {
         
         countryNameLabel.text = country.name
         
-        setFlagImage(country: country)
-        
-        
+        self.countryFlagImageView.sd_setImage(with: URL(string: country.flag!), completed: nil)
         
         
     }
     
-    func setFlagImage(country: Country) {
-        guard let url = URL(string: country.flag!) else { return }
-        
-        let getDataTask = URLSession.shared.dataTask(with: url, completionHandler: {data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                let image = UIImage(data: data)
-                print(image)
-                self.countryFlagImageView.image = image
-            }
-        })
-        
-        getDataTask.resume()
-    }
+//    func setFlagImage(country: Country) {
+//        guard let url = URL(string: country.flag!) else { return }
+//
+//        let getDataTask = URLSession.shared.dataTask(with: url, completionHandler: {data, _, error in
+//            guard let data = data, error == nil else {
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                let image = UIImage(data: data)
+//                print(image)
+//                self.countryFlagImageView.image = image
+//            }
+//        })
+//
+//        getDataTask.resume()
+//    }
     
 
     
