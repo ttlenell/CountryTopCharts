@@ -68,7 +68,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70t-AJ-wnN">
-                                <rect key="frame" x="30" y="145" width="354" height="95"/>
+                                <rect key="frame" x="30" y="142" width="354" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <gestureRecognizers/>
