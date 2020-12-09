@@ -36,6 +36,9 @@ class SelectedCountryViewController: UIViewController {
         
         self.countryFlagImageView.sd_setImage(with: URL(string: country.flag!), completed: nil)
         
+        countryFlagImageView.layer.borderColor = UIColor.black.cgColor
+        countryFlagImageView.layer.borderWidth = 0.5
+        
         
     }
     
