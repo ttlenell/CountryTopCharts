@@ -17,6 +17,9 @@ class SelectedCountryViewController: UIViewController {
     var country: Country?
 
     @IBOutlet weak var countryNameLabel: UILabel!
+    
+    @IBOutlet weak var countryFlagImageView: UIImageView!
+    
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     
     override func viewDidLoad() {
@@ -30,6 +33,29 @@ class SelectedCountryViewController: UIViewController {
         
         countryNameLabel.text = country.name
         
+        setFlagImage(country: country)
+        
+        
+        
+        
+    }
+    
+    func setFlagImage(country: Country) {
+        guard let url = URL(string: country.flag!) else { return }
+        
+        let getDataTask = URLSession.shared.dataTask(with: url, completionHandler: {data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                print(image)
+                self.countryFlagImageView.image = image
+            }
+        })
+        
+        getDataTask.resume()
     }
     
 
