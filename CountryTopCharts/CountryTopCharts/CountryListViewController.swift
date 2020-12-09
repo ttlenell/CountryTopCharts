@@ -18,7 +18,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        countries = countriesAPI.countries
+        countries = CountriesAPI.countries
         
         let nib = UINib(nibName: "CountryTableViewCell", bundle: nil)
         countriesTableView.register(nib, forCellReuseIdentifier: "CountryTableViewCell")
@@ -43,7 +43,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     @IBAction func buttonPressed(_ sender: UIButton) {
-        countries = countriesAPI.countries
+        countries = CountriesAPI.countries
         print(countries)
         self.countriesTableView.reloadData()
     }
