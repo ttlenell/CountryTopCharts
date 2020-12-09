@@ -10,4 +10,5 @@ import Foundation
 
 struct Country: Codable {
     var name: String?
+    var flag: String?
 }
