@@ -10,6 +10,8 @@ import UIKit
 
 class CountryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    private var selectedRow = 0
+    
     @IBOutlet var countriesTableView: UITableView!
     let countriesPresenter = CountriesPresenter()
 
@@ -35,6 +37,30 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
             self.countriesTableView.reloadData()
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToSelectedCountry" {
+            let destinationVC = segue.destination as? SelectedCountryViewController
+            
+             destinationVC?.countryIndex = selectedRow
+            
+//            guard let countries = countriesPresenter.countries else {
+//                return
+//            }
+//            if let name = countries[selectedRow].name {
+//
+//            }
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = countriesTableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.selectedRow = indexPath.row
+        performSegue(withIdentifier: "segueToSelectedCountry", sender: cell)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
