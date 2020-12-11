@@ -13,6 +13,7 @@
 		F3BF4E662578E7EF0090F7A0 /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3BF4E642578E7EF0090F7A0 /* CountryTableViewCell.xib */; };
 		F3BF4EBA2580CD1C0090F7A0 /* CountriesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BF4EB92580CD1C0090F7A0 /* CountriesData.swift */; };
 		F3BFA2E02580D46B00A9CA90 /* SelectedCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFA2DF2580D46B00A9CA90 /* SelectedCountryViewController.swift */; };
+		F3BFA2E225837CE400A9CA90 /* SelectedCountryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFA2E125837CE400A9CA90 /* SelectedCountryPresenter.swift */; };
 		F3EFC8462570FE6100637A55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8452570FE6100637A55 /* AppDelegate.swift */; };
 		F3EFC8482570FE6100637A55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8472570FE6100637A55 /* SceneDelegate.swift */; };
 		F3EFC84A2570FE6100637A55 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC8492570FE6100637A55 /* CountryListViewController.swift */; };
@@ -58,6 +59,7 @@
 		F3BF4E642578E7EF0090F7A0 /* CountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryTableViewCell.xib; sourceTree = "<group>"; };
 		F3BF4EB92580CD1C0090F7A0 /* CountriesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesData.swift; sourceTree = "<group>"; };
 		F3BFA2DF2580D46B00A9CA90 /* SelectedCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryViewController.swift; sourceTree = "<group>"; };
+		F3BFA2E125837CE400A9CA90 /* SelectedCountryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCountryPresenter.swift; sourceTree = "<group>"; };
 		F3EFC8422570FE6100637A55 /* CountryTopCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryTopCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EFC8452570FE6100637A55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EFC8472570FE6100637A55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				F3EFC8782571010400637A55 /* CountriesPresenter.swift */,
+				F3BFA2E125837CE400A9CA90 /* SelectedCountryPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				F3EFC87B2571026F00637A55 /* CountriesAPI.swift in Sources */,
 				F3EFC84A2570FE6100637A55 /* CountryListViewController.swift in Sources */,
 				F3BFA2E02580D46B00A9CA90 /* SelectedCountryViewController.swift in Sources */,
+				F3BFA2E225837CE400A9CA90 /* SelectedCountryPresenter.swift in Sources */,
 				F3EFC8462570FE6100637A55 /* AppDelegate.swift in Sources */,
 				F3BF4EBA2580CD1C0090F7A0 /* CountriesData.swift in Sources */,
 				F3EFC8792571010400637A55 /* CountriesPresenter.swift in Sources */,

@@ -13,6 +13,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     private var selectedRow = 0
     
     @IBOutlet var countriesTableView: UITableView!
+    
     let countriesPresenter = CountriesPresenter()
 
     override func viewDidLoad() {
@@ -41,16 +42,14 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToSelectedCountry" {
+            
             let destinationVC = segue.destination as? SelectedCountryViewController
             
-             destinationVC?.countryIndex = selectedRow
+            guard let countries = countriesPresenter.countries else {
+                return
+            }
             
-//            guard let countries = countriesPresenter.countries else {
-//                return
-//            }
-//            if let name = countries[selectedRow].name {
-//
-//            }
+            destinationVC?.selectedCountryPresenter.country = countries[selectedRow]
             
         }
     }

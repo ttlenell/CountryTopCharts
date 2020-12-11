@@ -11,56 +11,36 @@ import SDWebImage
 
 class SelectedCountryViewController: UIViewController {
     
-    var countryIndex = 0
-    
-    let countriesPresenter = CountriesPresenter()
-    
-    var country: Country?
+    let selectedCountryPresenter = SelectedCountryPresenter()
 
     @IBOutlet weak var countryNameLabel: UILabel!
-    
     @IBOutlet weak var countryFlagImageView: UIImageView!
-    
-    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var topChartsClickableView: UIView!
+    //@IBOutlet var topChartsClickableViewTapRegognizer: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let countries = countriesPresenter.countries else { return }
-        
-        country = countries[countryIndex]
-        
-        guard let country = country else { return }
+        guard let country = selectedCountryPresenter.country else { return }
         
         countryNameLabel.text = country.name
         
+        // Flag style rules
         self.countryFlagImageView.sd_setImage(with: URL(string: country.flag!), completed: nil)
-        
         countryFlagImageView.layer.borderColor = UIColor.black.cgColor
         countryFlagImageView.layer.borderWidth = 0.5
+        
+        // topChartsClickableView rules
+        let topChartsClickableViewTapRegognizer = UITapGestureRecognizer(target: self, action: #selector(topChartsClickableViewClicked))
+        topChartsClickableViewTapRegognizer.numberOfTapsRequired = 1
+        topChartsClickableViewTapRegognizer.numberOfTouchesRequired = 1
+        topChartsClickableView.isUserInteractionEnabled = true
+        topChartsClickableView.addGestureRecognizer(topChartsClickableViewTapRegognizer)
         
         
     }
     
-//    func setFlagImage(country: Country) {
-//        guard let url = URL(string: country.flag!) else { return }
-//
-//        let getDataTask = URLSession.shared.dataTask(with: url, completionHandler: {data, _, error in
-//            guard let data = data, error == nil else {
-//                return
-//            }
-//
-//            DispatchQueue.main.async {
-//                let image = UIImage(data: data)
-//                print(image)
-//                self.countryFlagImageView.image = image
-//            }
-//        })
-//
-//        getDataTask.resume()
-//    }
-    
-
-    
-
+    @objc func topChartsClickableViewClicked() {
+        print("topcharts clicked")
+    }
 }
