@@ -67,23 +67,30 @@
                                     <constraint firstAttribute="height" constant="41" id="wih-fZ-Xzc"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70t-AJ-wnN">
-                                <rect key="frame" x="30" y="142" width="354" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70t-AJ-wnN" userLabel="SpotifyTopChartsView">
+                                <rect key="frame" x="20" y="275" width="374" height="95"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="2Ie-72-Aul" appends="YES" id="Wrc-4j-8q0"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARN-0s-g0a" userLabel="NewsTopChartsView">
+                                <rect key="frame" x="20" y="462" width="374" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <gestureRecognizers/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4S0-4L-8DR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="70t-AJ-wnN" firstAttribute="centerX" secondItem="qqq-Cd-d3g" secondAttribute="centerX" id="10o-no-cfh"/>
                             <constraint firstItem="4S0-4L-8DR" firstAttribute="trailing" secondItem="FHE-8z-HU1" secondAttribute="trailing" constant="20" id="CFa-1s-5Gg"/>
                             <constraint firstItem="oJc-yD-CWc" firstAttribute="top" secondItem="4S0-4L-8DR" secondAttribute="top" constant="20" id="Keu-eM-LkQ"/>
                             <constraint firstItem="FHE-8z-HU1" firstAttribute="top" secondItem="4S0-4L-8DR" secondAttribute="top" constant="12" id="QRf-1x-Bp1"/>
                             <constraint firstItem="oJc-yD-CWc" firstAttribute="leading" secondItem="4S0-4L-8DR" secondAttribute="leading" constant="119" id="gKe-z2-Iyq"/>
+                            <constraint firstItem="70t-AJ-wnN" firstAttribute="centerY" secondItem="qqq-Cd-d3g" secondAttribute="centerY" id="lX6-LH-34f"/>
                             <constraint firstItem="FHE-8z-HU1" firstAttribute="leading" secondItem="oJc-yD-CWc" secondAttribute="trailing" constant="26" id="mFc-hW-Wmm"/>
                         </constraints>
                     </view>
