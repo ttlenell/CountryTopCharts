@@ -15,8 +15,9 @@ class SelectedCountryViewController: UIViewController {
 
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var countryFlagImageView: UIImageView!
-    @IBOutlet weak var topChartsClickableView: UIView!
+    @IBOutlet weak var newsClickableView: UIView!
     //@IBOutlet var topChartsClickableViewTapRegognizer: UITapGestureRecognizer!
+    @IBOutlet weak var newsClickableViewTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +31,23 @@ class SelectedCountryViewController: UIViewController {
         countryFlagImageView.layer.borderColor = UIColor.black.cgColor
         countryFlagImageView.layer.borderWidth = 0.5
         
-        // topChartsClickableView rules
-        let topChartsClickableViewTapRegognizer = UITapGestureRecognizer(target: self, action: #selector(topChartsClickableViewClicked))
-        topChartsClickableViewTapRegognizer.numberOfTapsRequired = 1
-        topChartsClickableViewTapRegognizer.numberOfTouchesRequired = 1
-        topChartsClickableView.isUserInteractionEnabled = true
-        topChartsClickableView.addGestureRecognizer(topChartsClickableViewTapRegognizer)
+        // newsClickableView rules
+        let newsClickableViewTapRegognizer = UITapGestureRecognizer(target: self, action: #selector(newsClickableViewClicked))
+        newsClickableViewTapRegognizer.numberOfTapsRequired = 1
+        newsClickableViewTapRegognizer.numberOfTouchesRequired = 1
+        newsClickableView.isUserInteractionEnabled = true
+        newsClickableView.addGestureRecognizer(newsClickableViewTapRegognizer)
+        
+        newsClickableView.layer.borderColor = UIColor.black.cgColor
+        newsClickableView.layer.borderWidth = 0.5
+        
+        
+        
         
         
     }
     
-    @objc func topChartsClickableViewClicked() {
-        print("topcharts clicked")
+    @objc func newsClickableViewClicked() {
+        print("news clicked")
     }
 }
