@@ -50,6 +50,8 @@ class CountriesPresenter {
     func updateCountries() {
         var acceptedCountries: [CountryResponse] = []
     
+        // filter countries to only show those
+        // that exist in sources
         for country in CountriesData.countries! {
             for source in NewsData.sources!{
                 if country.alpha2Code?.lowercased() == source.country?.lowercased() {
