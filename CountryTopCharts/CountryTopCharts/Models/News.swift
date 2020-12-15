@@ -11,12 +11,13 @@ import Foundation
 
 
 struct News: Codable {
-
+    // everything from newsAPI.org
     var sources: [Source]?
 
 }
 
 struct Source: Codable {
+    // country code (2 letters) from newsAPI.org
     var country: String?
 }
 

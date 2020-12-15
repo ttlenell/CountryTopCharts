@@ -20,17 +20,27 @@ class CountriesPresenter {
     // metoder för att använda APIs
     
     func getCountries() {
-        print("running countries API")
+        print("running countries API (everything)")
         countriesAPI.getCountries()
     }
     
     func getNews() {
-        print("running news API")
+        print("running news API for just news")
         
         newsAPI.getNews()
     }
     
+    func getSources() {
+        print("running news API for sources (everything)")
+        
+        newsAPI.getSources()
+    }
+    
     func updateCountries() {
         self.countries = CountriesData.countries
+        // add a for loop to match countrycodes from countriesAPI and newsAPI
+        
+        
+      
     }
 }

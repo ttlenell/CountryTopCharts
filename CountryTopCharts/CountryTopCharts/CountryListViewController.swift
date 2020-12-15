@@ -26,9 +26,12 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         countriesTableView.dataSource = self
         
         countriesPresenter.getCountries()
+        countriesPresenter.getSources()
         countriesPresenter.getNews()
         
         NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("CountriesUpdated"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("SourcesUpdated"), object: nil)
         
     }
     
@@ -41,6 +44,8 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToSelectedCountry" {
