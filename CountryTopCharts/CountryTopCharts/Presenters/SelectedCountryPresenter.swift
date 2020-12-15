@@ -10,6 +10,6 @@ import Foundation
 
 class SelectedCountryPresenter {
     
-    var country: Country? = Country()
+    var country: CountryResponse? = CountryResponse()
     
 }

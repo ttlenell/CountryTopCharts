@@ -10,5 +10,5 @@ import Foundation
 
 
 class NewsData {
-    static var news: News?
+    static var sources: [Source]?
 }

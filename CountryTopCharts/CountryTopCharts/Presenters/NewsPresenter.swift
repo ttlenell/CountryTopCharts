@@ -10,7 +10,7 @@ import Foundation
 
 class NewsPresenter {
     let newsAPI = NewsAPI()
-    var news: News? = NewsData.news
+    var news: [Source]? = NewsData.sources
     
     func getNews() {
         print("running news API for just news")

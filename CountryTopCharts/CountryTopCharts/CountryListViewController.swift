@@ -25,13 +25,11 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         countriesTableView.delegate = self
         countriesTableView.dataSource = self
         
-        countriesPresenter.getCountries()
-        countriesPresenter.getSources()
-        countriesPresenter.getNews()
+        countriesPresenter.getAcceptedCountries()
         
         NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("CountriesUpdated"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("SourcesUpdated"), object: nil)
+        
         
     }
     
