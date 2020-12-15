@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Country: Codable {
+struct CountryResponse: Codable {
     var name: String?
     var flag: String?
+    var alpha2Code: String?
 }

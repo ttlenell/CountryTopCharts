@@ -31,8 +31,8 @@ class NewsAPI {
             do {
                 print("api SOURCE call complete from apinews.org")
                 
-                
-                NewsData.news = try JSONDecoder().decode(News.self, from: data)
+                let response: SourcesResponse = try JSONDecoder().decode(SourcesResponse.self, from: data)
+                NewsData.sources = response.sources
    
                 NotificationCenter.default.post(name: Notification.Name("SourcesUpdated"), object: nil)
                 
@@ -59,10 +59,6 @@ class NewsAPI {
             do {
                 print("api NEWS call complete from apinews.org")
                 
-                
-                NewsData.news = try JSONDecoder().decode(News.self, from: data)
-   
-                NotificationCenter.default.post(name: Notification.Name("NewsUpdated"), object: nil)
                 
             }
             catch let jsonError as NSError {

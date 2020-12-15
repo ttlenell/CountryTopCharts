@@ -33,7 +33,7 @@ class CountriesAPI {
         do {
             print("api countries call complete")
             
-            CountriesData.countries = try JSONDecoder().decode([Country].self, from: data)
+            CountriesData.countries = try JSONDecoder().decode([CountryResponse].self, from: data)
             
             NotificationCenter.default.post(name: Notification.Name("CountriesUpdated"), object: nil)
             

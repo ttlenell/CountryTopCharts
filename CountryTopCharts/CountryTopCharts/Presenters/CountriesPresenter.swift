@@ -11,13 +11,24 @@ import Foundation
 class CountriesPresenter {
     
     let countriesAPI = CountriesAPI()
-    var countries: [Country]? = CountriesData.countries
+    var countries: [CountryResponse]? = CountriesData.countries
     
 
     let newsAPI = NewsAPI()
-    var news: News? = NewsData.news
+    var sources: [Source]? = NewsData.sources
     
-    // metoder för att använda APIs
+    init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(runGetCountries), name: Notification.Name("SourcesUpdated"), object: nil)
+    }
+    
+    @objc func runGetCountries() {
+        getCountries()
+    }
+    
+    func getAcceptedCountries() {
+        // Run get sources to trigger observer that will update countries
+        getSources()
+    }
     
     func getCountries() {
         print("running countries API (everything)")
@@ -37,10 +48,27 @@ class CountriesPresenter {
     }
     
     func updateCountries() {
-        self.countries = CountriesData.countries
-        // add a for loop to match countrycodes from countriesAPI and newsAPI
+        var acceptedCountries: [CountryResponse] = []
+    
+        for country in CountriesData.countries! {
+            for source in NewsData.sources!{
+                if country.alpha2Code?.lowercased() == source.country?.lowercased() {
+                    var countryExist = false
+                    for acceptedCountry in acceptedCountries {
+                        if acceptedCountry.alpha2Code ==  country.alpha2Code{
+                            countryExist = true
+                        }
+                    }
+                    if !countryExist {
+                        acceptedCountries.append(country)
+                    }
+                    
+                }
+            }
+        }
         
-        
+        CountriesData.countries = acceptedCountries
+        self.countries = acceptedCountries
       
     }
 }

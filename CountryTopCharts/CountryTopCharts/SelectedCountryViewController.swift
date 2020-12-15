@@ -25,6 +25,7 @@ class SelectedCountryViewController: UIViewController {
         guard let country = selectedCountryPresenter.country else { return }
         
         countryNameLabel.text = country.name
+        countryNameLabel.numberOfLines = 4
         
         // Flag style rules
         self.countryFlagImageView.sd_setImage(with: URL(string: country.flag!), completed: nil)
