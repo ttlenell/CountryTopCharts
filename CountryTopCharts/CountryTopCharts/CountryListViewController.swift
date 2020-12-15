@@ -15,6 +15,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var countriesTableView: UITableView!
     
     let countriesPresenter = CountriesPresenter()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         countriesTableView.dataSource = self
         
         countriesPresenter.getCountries()
+        countriesPresenter.getNews()
         
         NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("CountriesUpdated"), object: nil)
         

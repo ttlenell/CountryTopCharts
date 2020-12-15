@@ -13,11 +13,21 @@ class CountriesPresenter {
     let countriesAPI = CountriesAPI()
     var countries: [Country]? = CountriesData.countries
     
+
+    let newsAPI = NewsAPI()
+    var news: News? = NewsData.news
+    
     // metoder för att använda APIs
     
     func getCountries() {
-        print("running")
+        print("running countries API")
         countriesAPI.getCountries()
+    }
+    
+    func getNews() {
+        print("running news API")
+        
+        newsAPI.getNews()
     }
     
     func updateCountries() {
