@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class NewsData {
     static var news: News?
 }

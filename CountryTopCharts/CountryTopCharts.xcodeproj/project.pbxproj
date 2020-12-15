@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2754786E08F2FD80507E900C /* Pods_CountryTopCharts_CountryTopChartsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947DD67475A37C0A6437161F /* Pods_CountryTopCharts_CountryTopChartsUITests.framework */; };
+		2F338A532588F62100BA1A72 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F338A522588F62100BA1A72 /* NewsPresenter.swift */; };
 		2F39E50B2588C67800612CC9 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E50A2588C67800612CC9 /* NewsAPI.swift */; };
 		2F39E5192588C87C00612CC9 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E5182588C87C00612CC9 /* News.swift */; };
 		2F39E5212588C95200612CC9 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E5202588C95200612CC9 /* NewsData.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		031486C08E157130399E61C0 /* Pods-CountryTopChartsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryTopChartsTests.debug.xcconfig"; path = "Target Support Files/Pods-CountryTopChartsTests/Pods-CountryTopChartsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1DF740E1DA9E8811438E7F8F /* Pods-CountryTopChartsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryTopChartsTests.release.xcconfig"; path = "Target Support Files/Pods-CountryTopChartsTests/Pods-CountryTopChartsTests.release.xcconfig"; sourceTree = "<group>"; };
+		2F338A522588F62100BA1A72 /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
 		2F39E50A2588C67800612CC9 /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		2F39E5182588C87C00612CC9 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		2F39E5202588C95200612CC9 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				F3EFC8782571010400637A55 /* CountriesPresenter.swift */,
 				F3BFA2E125837CE400A9CA90 /* SelectedCountryPresenter.swift */,
+				2F338A522588F62100BA1A72 /* NewsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -320,7 +323,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Tobias Classon";
 				TargetAttributes = {
 					F3EFC8412570FE6100637A55 = {
@@ -504,6 +507,7 @@
 				F3EFC8792571010400637A55 /* CountriesPresenter.swift in Sources */,
 				2F39E50B2588C67800612CC9 /* NewsAPI.swift in Sources */,
 				F3BF4E652578E7EF0090F7A0 /* CountryTableViewCell.swift in Sources */,
+				2F338A532588F62100BA1A72 /* NewsPresenter.swift in Sources */,
 				2F39E5192588C87C00612CC9 /* News.swift in Sources */,
 				F3EFC8482570FE6100637A55 /* SceneDelegate.swift in Sources */,
 			);
@@ -586,6 +590,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -646,6 +651,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
