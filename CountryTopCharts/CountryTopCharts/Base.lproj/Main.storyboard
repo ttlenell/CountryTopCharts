@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,17 +19,17 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-dd-Tqi">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Qi6-dd-Tqi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HKe-OB-Ush"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Qi6-dd-Tqi" secondAttribute="bottom" id="R6l-yQ-GPV"/>
                             <constraint firstItem="Qi6-dd-Tqi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eV7-4N-XT4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qi6-dd-Tqi" secondAttribute="trailing" id="pgo-9p-kj1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="countriesTableView" destination="Qi6-dd-Tqi" id="Ad2-us-Slw"/>
@@ -65,9 +67,8 @@
                                     <constraint firstAttribute="height" constant="41" id="wih-fZ-Xzc"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70t-AJ-wnN" userLabel="SpotifyTopChartsView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70t-AJ-wnN" userLabel="SpotifyTopChartsView">
                                 <rect key="frame" x="20" y="275" width="374" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kd-CU-d0t">
                                         <rect key="frame" x="8" y="8" width="43" height="21"/>
@@ -79,21 +80,43 @@
                                 </subviews>
                                 <gestureRecognizers/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rY8-Hd-iEu" userLabel="SpotifyTopChartsView">
+                                <rect key="frame" x="20" y="407" width="374" height="95"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-fI-Pud">
+                                        <rect key="frame" x="8" y="8" width="43" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <gestureRecognizers/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="4S0-4L-8DR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rY8-Hd-iEu" firstAttribute="top" secondItem="70t-AJ-wnN" secondAttribute="bottom" constant="37" id="2r7-8p-Ivr"/>
                             <constraint firstItem="4S0-4L-8DR" firstAttribute="trailing" secondItem="FHE-8z-HU1" secondAttribute="trailing" constant="20" id="CFa-1s-5Gg"/>
+                            <constraint firstItem="70t-AJ-wnN" firstAttribute="trailing" secondItem="FHE-8z-HU1" secondAttribute="trailing" id="Ffk-3B-BaK"/>
                             <constraint firstItem="oJc-yD-CWc" firstAttribute="top" secondItem="4S0-4L-8DR" secondAttribute="top" constant="20" id="Keu-eM-LkQ"/>
                             <constraint firstItem="FHE-8z-HU1" firstAttribute="top" secondItem="4S0-4L-8DR" secondAttribute="top" constant="12" id="QRf-1x-Bp1"/>
+                            <constraint firstItem="70t-AJ-wnN" firstAttribute="top" secondItem="qqq-Cd-d3g" secondAttribute="top" constant="275" id="WCm-ZW-mgC"/>
+                            <constraint firstItem="rY8-Hd-iEu" firstAttribute="leading" secondItem="70t-AJ-wnN" secondAttribute="leading" id="WWN-7e-7pO"/>
                             <constraint firstItem="oJc-yD-CWc" firstAttribute="leading" secondItem="4S0-4L-8DR" secondAttribute="leading" constant="119" id="gKe-z2-Iyq"/>
+                            <constraint firstItem="70t-AJ-wnN" firstAttribute="centerX" secondItem="oJc-yD-CWc" secondAttribute="centerX" id="j9k-bL-e6m"/>
                             <constraint firstItem="FHE-8z-HU1" firstAttribute="leading" secondItem="oJc-yD-CWc" secondAttribute="trailing" constant="26" id="mFc-hW-Wmm"/>
+                            <constraint firstItem="4S0-4L-8DR" firstAttribute="bottom" secondItem="rY8-Hd-iEu" secondAttribute="bottom" constant="306" id="qN4-cx-6ch"/>
+                            <constraint firstItem="4S0-4L-8DR" firstAttribute="bottom" secondItem="70t-AJ-wnN" secondAttribute="bottom" constant="438" id="qfk-0v-LXN"/>
+                            <constraint firstItem="rY8-Hd-iEu" firstAttribute="trailing" secondItem="70t-AJ-wnN" secondAttribute="trailing" id="vkH-UN-ic6"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="4S0-4L-8DR"/>
                     </view>
                     <connections>
                         <outlet property="countryFlagImageView" destination="FHE-8z-HU1" id="yQd-Ga-NGv"/>
                         <outlet property="countryNameLabel" destination="oJc-yD-CWc" id="Tqp-zm-g62"/>
                         <outlet property="newsClickableView" destination="70t-AJ-wnN" id="AV5-5v-mq2"/>
+                        <outlet property="newsClickableView2" destination="rY8-Hd-iEu" id="TY5-UB-532"/>
                         <outlet property="newsClickableViewTitleLabel" destination="8Kd-CU-d0t" id="9rV-0J-uSi"/>
                     </connections>
                 </viewController>
@@ -102,4 +125,9 @@
             <point key="canvasLocation" x="1031.8840579710145" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
