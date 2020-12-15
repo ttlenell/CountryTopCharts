@@ -12,7 +12,7 @@ class CountriesAPI {
     
     
     
-    static var countries: [Country]?
+//    static var countries: [Country]?
     let urlString: String = "https://restcountries.eu/rest/v2/all"
     
     
@@ -31,7 +31,7 @@ class CountriesAPI {
         //inte error!
         guard let data = data else {return}
         do {
-            print("api call complete")
+            print("api countries call complete")
             
             CountriesData.countries = try JSONDecoder().decode([Country].self, from: data)
             
