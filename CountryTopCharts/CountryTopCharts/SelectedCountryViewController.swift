@@ -15,10 +15,13 @@ class SelectedCountryViewController: UIViewController {
 
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var countryFlagImageView: UIImageView!
-    @IBOutlet weak var newsClickableView: UIView!
+    @IBOutlet weak var newsClickableView: UIImageView!
     //@IBOutlet var topChartsClickableViewTapRegognizer: UITapGestureRecognizer!
     @IBOutlet weak var newsClickableViewTitleLabel: UILabel!
-    @IBOutlet weak var newsClickableView2: UIView!
+
+    
+    @IBOutlet weak var newsClickableImage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +46,11 @@ class SelectedCountryViewController: UIViewController {
         newsClickableView.layer.borderColor = UIColor.black.cgColor
         newsClickableView.layer.borderWidth = 0.5
         
-        newsClickableView2.layer.borderColor = UIColor.black.cgColor
-        newsClickableView2.layer.borderWidth = 0.5
+  
         
         
         
+
         
         
     }
