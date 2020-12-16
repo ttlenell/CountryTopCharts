@@ -22,7 +22,7 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         newsTableView.delegate = self
         newsTableView.dataSource = self
         
-        newsPresenter.getNews()
+        newsPresenter.initiate()
         
     }
     
