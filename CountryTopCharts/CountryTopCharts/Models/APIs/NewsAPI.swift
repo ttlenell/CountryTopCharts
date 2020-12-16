@@ -11,12 +11,12 @@ import Foundation
 class NewsAPI {
     
 //    static var news: News?
-    let urlString: String = "https://newsapi.org/v2/sources?apiKey=d1c7748715cc482fb7f9908d73101c81"
+    let sourcesUrlString: String = "https://newsapi.org/v2/sources?apiKey=d1c7748715cc482fb7f9908d73101c81"
     
     
     
     func getSources() {
-        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: sourcesUrlString)! as URL)
         let session = URLSession.shared
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -43,8 +43,9 @@ class NewsAPI {
             }})
         task.resume() }
     
-    func getNews() {
-        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
+    func getNews(countryCode: String) {
+        let newsUrlString: String = "https://newsapi.org/v2/top-headlines?country=" + countryCode + "&apiKey=d1c7748715cc482fb7f9908d73101c81"
+        let request = NSMutableURLRequest(url: NSURL(string: newsUrlString)! as URL)
         let session = URLSession.shared
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -58,6 +59,8 @@ class NewsAPI {
             guard let data = data else {return}
             do {
                 print("api NEWS call complete from apinews.org")
+                
+                
                 
                 
             }

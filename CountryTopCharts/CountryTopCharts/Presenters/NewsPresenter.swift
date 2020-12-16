@@ -10,12 +10,13 @@ import Foundation
 
 class NewsPresenter {
     let newsAPI = NewsAPI()
-    var news: [Source]? = NewsData.sources
+    
+    var countryCode: String?
     
     func getNews() {
         print("running news API for just news")
         
-        newsAPI.getNews()
+        newsAPI.getNews(countryCode: countryCode!)
     }
     
     // funktion för att uppdatera med observer, likt updatecountries()?
