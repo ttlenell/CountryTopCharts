@@ -15,6 +15,10 @@ class CountryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        contentView.layer.borderWidth = 2.0
+        contentView.layer.cornerRadius = 10
+        countryLabel?.font = UIFont(name:"Avenir", size:30)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
