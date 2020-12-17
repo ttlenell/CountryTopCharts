@@ -58,7 +58,22 @@ class NewsAPI {
             //inte error!
             guard let data = data else {return}
             do {
+                
+                let response: ArticlesResponse = try JSONDecoder().decode(ArticlesResponse.self, from: data)
+                var tempArray: [ArticleResponse] = []
+                print(response)
+                for article in response.articles! {
+
+                    if tempArray.count < 10 {
+                        tempArray.append(article)
+                    } else {
+                        return
+                    }
+                }
+                
+                NewsData.NewsFeed = tempArray
                 print("api NEWS call complete from apinews.org")
+                print("the country code is " + countryCode)
                 
                 
                 

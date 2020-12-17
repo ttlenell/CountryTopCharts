@@ -24,6 +24,8 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         newsPresenter.initiate()
         
+        
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -31,14 +33,20 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-        // return newsFeed.length
+        return 2
+        
+    
+//          return NewsData.NewsFeed!.count
+    
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
         
-        cell.title.text = "Title"
+    
+//
+//        cell.title.text = NewsData.NewsFeed![indexPath.row].title
+    
         
         return cell
     }
