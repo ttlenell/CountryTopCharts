@@ -16,28 +16,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuT-cn-gf8">
-                        <rect key="frame" x="16" y="12" width="288" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuT-cn-gf8">
+                        <rect key="frame" x="106" y="12" width="208" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCy-ZV-hJP">
-                        <rect key="frame" x="16" y="55" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cMs-Lu-Sb6">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="jtt-Xt-AWc"/>
+                            <constraint firstAttribute="width" constant="100" id="noE-2f-535"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="IuT-cn-gf8" secondAttribute="trailing" constant="16" id="HAm-jv-vXc"/>
-                    <constraint firstItem="IuT-cn-gf8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Nr5-XG-aaa"/>
-                    <constraint firstItem="IuT-cn-gf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="f7H-Uq-BDk"/>
+                    <constraint firstAttribute="trailing" secondItem="IuT-cn-gf8" secondAttribute="trailing" constant="6" id="EE7-1A-vvR"/>
+                    <constraint firstItem="cMs-Lu-Sb6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HSG-nN-g7Z"/>
+                    <constraint firstItem="IuT-cn-gf8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="IB7-qb-Xlz"/>
+                    <constraint firstAttribute="bottom" secondItem="cMs-Lu-Sb6" secondAttribute="bottom" id="KyF-nK-Y94"/>
+                    <constraint firstItem="cMs-Lu-Sb6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Txh-0b-Jsi"/>
+                    <constraint firstItem="IuT-cn-gf8" firstAttribute="leading" secondItem="cMs-Lu-Sb6" secondAttribute="trailing" constant="6" id="ubn-El-9Qw"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="articleImageView" destination="cMs-Lu-Sb6" id="WdA-qu-4t2"/>
                 <outlet property="title" destination="IuT-cn-gf8" id="6Jg-Sl-Hf4"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>

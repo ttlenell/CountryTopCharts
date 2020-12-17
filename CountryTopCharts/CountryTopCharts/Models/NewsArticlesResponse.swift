@@ -23,6 +23,7 @@ struct ArticleResponse: Codable {
     var content: String?
     var publishedAt: String?
     var url: String?
+    var urlToImage: String?
     var source: ArticleSourceResponse?
     
 }

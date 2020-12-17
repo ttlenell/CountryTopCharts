@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let newsPresenter = NewsPresenter()
@@ -21,6 +22,8 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         newsTableView.register(nib, forCellReuseIdentifier: "NewsTableViewCell")
         newsTableView.delegate = self
         newsTableView.dataSource = self
+        newsTableView.rowHeight = UITableView.automaticDimension
+        newsTableView.estimatedRowHeight = 600
         
         newsPresenter.initiate()
         
@@ -58,8 +61,12 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
          guard let newsFeed = newsPresenter.newsFeed else {
             return cell
          }
+        guard let urlToImage = newsFeed[indexPath.row].urlToImage else { return cell }
+//        guard let source = newsFeed[indexPath.row].source else { return cell }
+//        guard let sourceName = source.name else { return cell }
         
         cell.title.text = newsFeed[indexPath.row].title
+        cell.articleImageView.sd_setImage(with: URL(string: urlToImage), completed: nil)
         
         return cell
     }

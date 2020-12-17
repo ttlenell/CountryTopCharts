@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var articleImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
