@@ -11,6 +11,7 @@ import Foundation
 class NewsPresenter {
     let networkMonitor = NetworkMonitor()
     let newsAPI = NewsAPI()
+   
     
     var countryCode: String?
     
@@ -25,9 +26,11 @@ class NewsPresenter {
     
     @objc func getNewsWithConnection() {
         
-        print("connected and getting from api")
+        print("connected and getting from newsAPI")
 
         newsAPI.getNews(countryCode: countryCode!)
+        networkMonitor.monitor.cancel()
+        print("stopped monitoring network activity ")
         
         // save new to cache
         

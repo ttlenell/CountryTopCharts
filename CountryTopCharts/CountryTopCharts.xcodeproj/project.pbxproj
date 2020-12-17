@@ -12,6 +12,7 @@
 		2F39E50B2588C67800612CC9 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E50A2588C67800612CC9 /* NewsAPI.swift */; };
 		2F39E5192588C87C00612CC9 /* SourcesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E5182588C87C00612CC9 /* SourcesResponse.swift */; };
 		2F39E5212588C95200612CC9 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E5202588C95200612CC9 /* NewsData.swift */; };
+		2F7D52C2258B6647001ACCE3 /* NewsArticlesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7D52C1258B6647001ACCE3 /* NewsArticlesResponse.swift */; };
 		F126A92B491FADDAED5BFE45 /* Pods_CountryTopChartsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E7B39D355647D98F2A4EC0 /* Pods_CountryTopChartsTests.framework */; };
 		F3BF4E652578E7EF0090F7A0 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BF4E632578E7EF0090F7A0 /* CountryTableViewCell.swift */; };
 		F3BF4E662578E7EF0090F7A0 /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3BF4E642578E7EF0090F7A0 /* CountryTableViewCell.xib */; };
@@ -60,6 +61,7 @@
 		2F39E50A2588C67800612CC9 /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		2F39E5182588C87C00612CC9 /* SourcesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesResponse.swift; sourceTree = "<group>"; };
 		2F39E5202588C95200612CC9 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
+		2F7D52C1258B6647001ACCE3 /* NewsArticlesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticlesResponse.swift; sourceTree = "<group>"; };
 		4FBF04E80E2A47642E96873A /* Pods-CountryTopCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryTopCharts.debug.xcconfig"; path = "Target Support Files/Pods-CountryTopCharts/Pods-CountryTopCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		5E2FB6C49D1A332C38DCBAE5 /* Pods-CountryTopCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryTopCharts.release.xcconfig"; path = "Target Support Files/Pods-CountryTopCharts/Pods-CountryTopCharts.release.xcconfig"; sourceTree = "<group>"; };
 		947DD67475A37C0A6437161F /* Pods_CountryTopCharts_CountryTopChartsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CountryTopCharts_CountryTopChartsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +247,7 @@
 		F3EFC8762571003D00637A55 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2F7D52C1258B6647001ACCE3 /* NewsArticlesResponse.swift */,
 				2F39E5202588C95200612CC9 /* NewsData.swift */,
 				2F39E5182588C87C00612CC9 /* SourcesResponse.swift */,
 				F3EFC87E2571294600637A55 /* CountryResponse.swift */,
@@ -506,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BFA2E525839FE000A9CA90 /* NetworkMonitor.swift in Sources */,
+				2F7D52C2258B6647001ACCE3 /* NewsArticlesResponse.swift in Sources */,
 				F3EFC87F2571294600637A55 /* CountryResponse.swift in Sources */,
 				F3EFC87B2571026F00637A55 /* CountriesAPI.swift in Sources */,
 				F3EFC84A2570FE6100637A55 /* CountryListViewController.swift in Sources */,
