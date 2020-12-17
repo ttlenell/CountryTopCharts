@@ -56,6 +56,18 @@ class SelectedCountryViewController: UIViewController {
     }
     
     @objc func newsClickableViewClicked() {
-        print("news clicked")
+        performSegue(withIdentifier: "segueToNewsFeed", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToNewsFeed" {
+            
+            let destinationVC = segue.destination as? NewsFeedViewController
+            
+            let country = selectedCountryPresenter.country
+            
+            destinationVC?.newsPresenter.countryCode = country?.alpha2Code
+            
+        }
     }
 }

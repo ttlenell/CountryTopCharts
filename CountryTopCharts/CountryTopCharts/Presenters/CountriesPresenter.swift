@@ -35,12 +35,6 @@ class CountriesPresenter {
         countriesAPI.getCountries()
     }
     
-    func getNews() {
-        print("running news API for just news")
-        
-        newsAPI.getNews()
-    }
-    
     func getSources() {
         print("running news API for sources (everything)")
         
@@ -50,17 +44,21 @@ class CountriesPresenter {
     func updateCountries() {
         var acceptedCountries: [CountryResponse] = []
     
+        // filter countries to only show those
+        // that exist in sources
         for country in CountriesData.countries! {
             for source in NewsData.sources!{
                 if country.alpha2Code?.lowercased() == source.country?.lowercased() {
                     var countryExist = false
                     for acceptedCountry in acceptedCountries {
-                        if acceptedCountry.alpha2Code ==  country.alpha2Code{
+                        if acceptedCountry.alpha2Code?.lowercased() ==  country.alpha2Code?.lowercased(){
                             countryExist = true
                         }
                     }
                     if !countryExist {
-                        acceptedCountries.append(country)
+                        var countryToAdd = country
+                        countryToAdd.alpha2Code = countryToAdd.alpha2Code?.lowercased()
+                        acceptedCountries.append(countryToAdd)
                     }
                     
                 }

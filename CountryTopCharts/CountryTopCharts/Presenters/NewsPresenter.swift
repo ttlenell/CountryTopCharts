@@ -9,16 +9,36 @@
 import Foundation
 
 class NewsPresenter {
+    let networkMonitor = NetworkMonitor()
     let newsAPI = NewsAPI()
-    var news: [Source]? = NewsData.sources
     
-    func getNews() {
-        print("running news API for just news")
-        
-        newsAPI.getNews()
+    var countryCode: String?
+    
+    init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(getNewsWithConnection), name: Notification.Name("isConnected"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getNewsWithNoConnection), name: Notification.Name("isNotConnected"), object: nil)
     }
     
-    // funktion för att uppdatera med observer, likt updatecountries()?
-    // func updateNews() {
-    // }
+    func initiate() {
+        networkMonitor.checkConnectivity()
+    }
+    
+    @objc func getNewsWithConnection() {
+        
+        print("connected and getting from api")
+
+        newsAPI.getNews(countryCode: countryCode!)
+        
+        // save new to cache
+        
+    }
+    
+    @objc func getNewsWithNoConnection() {
+        
+        print("not connected and getting from cache")
+
+        // get news from cache
+        
+    }
+    
 }
