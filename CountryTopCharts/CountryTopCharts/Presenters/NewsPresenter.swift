@@ -48,8 +48,6 @@ class NewsPresenter {
     func updateNewsFeed() {
         guard let tempNewsFeed = NewsData.newsFeed else {return}
         
-        print("running update newsfeed", tempNewsFeed)
-        
         self.newsFeed = tempNewsFeed
     }
     

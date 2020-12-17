@@ -22,8 +22,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         newsTableView.register(nib, forCellReuseIdentifier: "NewsTableViewCell")
         newsTableView.delegate = self
         newsTableView.dataSource = self
-        newsTableView.rowHeight = UITableView.automaticDimension
-        newsTableView.estimatedRowHeight = 600
         
         newsPresenter.initiate()
         
@@ -42,7 +40,17 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Did select cell
+        
+        
+        guard let newsFeed = newsPresenter.newsFeed else { return }
+        let article = newsFeed[indexPath.row]
+        guard let urlString = article.url else { return }
+
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
