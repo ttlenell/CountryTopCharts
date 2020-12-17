@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let newsPresenter = NewsPresenter()
@@ -24,29 +25,56 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         newsPresenter.initiate()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(newsFeedUpdatedNotificationRecieved), name: Notification.Name("NewsFeedUpdated"), object: nil)
         
+    }
+    
+    @objc func newsFeedUpdatedNotificationRecieved () {
+        print("observer triggered")
+        newsPresenter.updateNewsFeed()
+        
+        DispatchQueue.main.async {
+            self.newsTableView.reloadData()
+        }
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Did select cell
+        
+        
+        guard let newsFeed = newsPresenter.newsFeed else { return }
+        let article = newsFeed[indexPath.row]
+        guard let urlString = article.url else { return }
+
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-        
-    
-//          return NewsData.NewsFeed!.count
+        guard let newsFeed = newsPresenter.newsFeed else {
+            print("returning 0")
+            return 0
+        }
+        print("returning count")
+        return newsFeed.count
     
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
         
-    
-//
-//        cell.title.text = NewsData.NewsFeed![indexPath.row].title
-    
+         guard let newsFeed = newsPresenter.newsFeed else {
+            return cell
+         }
+        guard let urlToImage = newsFeed[indexPath.row].urlToImage else { return cell }
+//        guard let source = newsFeed[indexPath.row].source else { return cell }
+//        guard let sourceName = source.name else { return cell }
+        
+        cell.title.text = newsFeed[indexPath.row].title
+        cell.articleImageView.sd_setImage(with: URL(string: urlToImage), completed: nil)
         
         return cell
     }
