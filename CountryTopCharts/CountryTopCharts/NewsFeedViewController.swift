@@ -24,7 +24,17 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         newsPresenter.initiate()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(newsFeedUpdatedNotificationRecieved), name: Notification.Name("NewsFeedUpdated"), object: nil)
         
+    }
+    
+    @objc func newsFeedUpdatedNotificationRecieved () {
+        print("observer triggered")
+        newsPresenter.updateNewsFeed()
+        
+        DispatchQueue.main.async {
+            self.newsTableView.reloadData()
+        }
         
     }
     
@@ -33,20 +43,23 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-        
-    
-//          return NewsData.NewsFeed!.count
+        guard let newsFeed = newsPresenter.newsFeed else {
+            print("returning 0")
+            return 0
+        }
+        print("returning count")
+        return newsFeed.count
     
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
         
-    
-//
-//        cell.title.text = NewsData.NewsFeed![indexPath.row].title
-    
+         guard let newsFeed = newsPresenter.newsFeed else {
+            return cell
+         }
+        
+        cell.title.text = newsFeed[indexPath.row].title
         
         return cell
     }

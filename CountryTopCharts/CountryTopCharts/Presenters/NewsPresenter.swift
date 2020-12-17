@@ -12,6 +12,7 @@ class NewsPresenter {
     let networkMonitor = NetworkMonitor()
     let newsAPI = NewsAPI()
    
+    var newsFeed: [ArticleResponse]?
     
     var countryCode: String?
     
@@ -42,6 +43,14 @@ class NewsPresenter {
 
         // get news from cache
         
+    }
+    
+    func updateNewsFeed() {
+        guard let tempNewsFeed = NewsData.newsFeed else {return}
+        
+        print("running update newsfeed", tempNewsFeed)
+        
+        self.newsFeed = tempNewsFeed
     }
     
 }

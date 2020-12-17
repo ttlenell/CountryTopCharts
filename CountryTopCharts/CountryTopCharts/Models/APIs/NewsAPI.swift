@@ -61,21 +61,19 @@ class NewsAPI {
                 
                 let response: ArticlesResponse = try JSONDecoder().decode(ArticlesResponse.self, from: data)
                 var tempArray: [ArticleResponse] = []
-                print(response)
+                
                 for article in response.articles! {
 
                     if tempArray.count < 10 {
                         tempArray.append(article)
-                    } else {
-                        return
                     }
                 }
                 
-                NewsData.NewsFeed = tempArray
-                print("api NEWS call complete from apinews.org")
-                print("the country code is " + countryCode)
-                
-                
+                NewsData.newsFeed = tempArray
+//                print("api NEWS call complete from apinews.org")
+//                print("the country code is " + countryCode)
+                print("triggering observer")
+                NotificationCenter.default.post(name: Notification.Name("NewsFeedUpdated"), object: nil)
                 
                 
             }
