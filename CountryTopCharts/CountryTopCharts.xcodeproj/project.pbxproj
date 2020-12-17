@@ -12,7 +12,6 @@
 		2F39E50B2588C67800612CC9 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E50A2588C67800612CC9 /* NewsAPI.swift */; };
 		2F39E5192588C87C00612CC9 /* SourcesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E5182588C87C00612CC9 /* SourcesResponse.swift */; };
 		2F39E5212588C95200612CC9 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E5202588C95200612CC9 /* NewsData.swift */; };
-		2F7D5295258B473A001ACCE3 /* CountryTopCharts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F7D5293258B473A001ACCE3 /* CountryTopCharts.xcdatamodeld */; };
 		F126A92B491FADDAED5BFE45 /* Pods_CountryTopChartsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E7B39D355647D98F2A4EC0 /* Pods_CountryTopChartsTests.framework */; };
 		F3BF4E652578E7EF0090F7A0 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BF4E632578E7EF0090F7A0 /* CountryTableViewCell.swift */; };
 		F3BF4E662578E7EF0090F7A0 /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3BF4E642578E7EF0090F7A0 /* CountryTableViewCell.xib */; };
@@ -58,7 +57,6 @@
 		2F39E50A2588C67800612CC9 /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		2F39E5182588C87C00612CC9 /* SourcesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesResponse.swift; sourceTree = "<group>"; };
 		2F39E5202588C95200612CC9 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
-		2F7D5294258B473A001ACCE3 /* CountryTopCharts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CountryTopCharts.xcdatamodel; sourceTree = "<group>"; };
 		4FBF04E80E2A47642E96873A /* Pods-CountryTopCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryTopCharts.debug.xcconfig"; path = "Target Support Files/Pods-CountryTopCharts/Pods-CountryTopCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		5E2FB6C49D1A332C38DCBAE5 /* Pods-CountryTopCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryTopCharts.release.xcconfig"; path = "Target Support Files/Pods-CountryTopCharts/Pods-CountryTopCharts.release.xcconfig"; sourceTree = "<group>"; };
 		947DD67475A37C0A6437161F /* Pods_CountryTopCharts_CountryTopChartsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CountryTopCharts_CountryTopChartsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,14 +117,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F7D5299258B4747001ACCE3 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				2F7D5293258B473A001ACCE3 /* CountryTopCharts.xcdatamodeld */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
 		31B991B6B6B269B3D6A19B36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +190,6 @@
 		F3EFC8442570FE6100637A55 /* CountryTopCharts */ = {
 			isa = PBXGroup;
 			children = (
-				2F7D5299258B4747001ACCE3 /* CoreData */,
 				F3BFA2E325839F9500A9CA90 /* Utils */,
 				F3BF4EBB2580D1ED0090F7A0 /* Views */,
 				F3EFC8772571005300637A55 /* Presenters */,
@@ -507,7 +496,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BFA2E525839FE000A9CA90 /* NetworkMonitor.swift in Sources */,
-				2F7D5295258B473A001ACCE3 /* CountryTopCharts.xcdatamodeld in Sources */,
 				F3EFC87F2571294600637A55 /* CountryResponse.swift in Sources */,
 				F3EFC87B2571026F00637A55 /* CountriesAPI.swift in Sources */,
 				F3EFC84A2570FE6100637A55 /* CountryListViewController.swift in Sources */,
@@ -854,19 +842,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		2F7D5293258B473A001ACCE3 /* CountryTopCharts.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				2F7D5294258B473A001ACCE3 /* CountryTopCharts.xcdatamodel */,
-			);
-			currentVersion = 2F7D5294258B473A001ACCE3 /* CountryTopCharts.xcdatamodel */;
-			path = CountryTopCharts.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F3EFC83A2570FE6100637A55 /* Project object */;
 }
