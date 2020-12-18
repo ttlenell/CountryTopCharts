@@ -55,10 +55,9 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let newsFeed = newsPresenter.newsFeed else {
-            print("returning 0")
+
             return 0
         }
-        print("returning count")
         return newsFeed.count
     
     }
