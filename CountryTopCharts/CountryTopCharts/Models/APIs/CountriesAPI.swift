@@ -10,11 +10,7 @@ import Foundation
 
 class CountriesAPI {
     
-    
-    
-//    static var countries: [Country]?
     let urlString: String = "https://restcountries.eu/rest/v2/all"
-    
     
     func getCountries() {
     let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)

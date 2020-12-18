@@ -6,6 +6,36 @@
 //  Copyright © 2020 Tobias Classon. All rights reserved.
 //
 
+// Kriterier
+// 1: MVP, Varför? (VIKTIGT!)
+//    Använder observer pattern, varför? (VIKTIGT!)
+//    Använder singletons, varför? (VIKTIGT!)
+
+// 2: Relation mellan online data och cache:
+//    Vi hämtar från api om internet finns och sparar i cache
+//    Om internet inte finns så hämtar vi från cache och visar
+//    upp tom array om cache e tom.
+
+// 3: Unit tests för beteeneden: (VIKTIGT!)
+//    Vad kan vi testa i vårt fall? api calls? NSTimer för att testa hastighet,
+//    test för sorting algoritm och kryptering
+
+// 4: Exempel från profiler före/efter, stresstest? (VIKTIGT!) ( Att kunna reflektera över detta )
+//    Vi använder NWPathMonitor för att se om device är connected eller ej
+//    Reflektera över data från exempelvis energy test osv
+
+// 5: Encyption / sortering: (VIKTIGT!)
+//    Sortering: Kan sortera NewsFeed på datum
+//    Kryptering? låtsasfunktion, testa olika typer av hashing och reflektera över skillnader i output
+
+//    Använda db? (Om vi har tid) Kunna reflektera över skillnaden på document based och SQL? (VIKTIGT!)
+
+//    Skapa egna async anrop för att påvisa kunskap om threads? (Om vi har tid)
+
+//    Error handling i api calls.
+//    Enkel error handling (typ logga error code) (VIKTIGT!)
+//    Retry funktionalitet vid rimlig error code (Om vi har tid)
+
 import UIKit
 
 class CountryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
