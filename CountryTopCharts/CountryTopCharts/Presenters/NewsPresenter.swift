@@ -16,8 +16,6 @@ class NewsPresenter {
     
     var countryCode: String?
     
-//    private let cache = NSCache<NSString, ArticleHolder>()
-    
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(getNewsWithConnection), name: Notification.Name("isConnected"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getNewsWithNoConnection), name: Notification.Name("isNotConnected"), object: nil)
@@ -42,8 +40,6 @@ class NewsPresenter {
             print("Using a cached image for item: \(countryCode)")
             NewsData.newsFeed = cachedArticle.articles
             updateNewsFeed()
-           
-
         } else {
             NewsData.newsFeed = []
             updateNewsFeed()
