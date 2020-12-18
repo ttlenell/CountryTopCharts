@@ -31,7 +31,6 @@ class CountriesAPI {
         //inte error!
         guard let data = data else {return}
         do {
-            print("api countries call complete")
             
             CountriesData.countries = try JSONDecoder().decode([CountryResponse].self, from: data)
             

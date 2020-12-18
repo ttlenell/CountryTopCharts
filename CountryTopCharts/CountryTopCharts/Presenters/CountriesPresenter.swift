@@ -31,12 +31,10 @@ class CountriesPresenter {
     }
     
     func getCountries() {
-        print("running countries API (everything)")
         countriesAPI.getCountries()
     }
     
     func getSources() {
-        print("running news API for sources (everything)")
         
         newsAPI.getSources()
     }

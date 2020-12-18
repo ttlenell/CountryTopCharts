@@ -29,7 +29,6 @@ class NewsAPI {
             //inte error!
             guard let data = data else {return}
             do {
-                print("api SOURCE call complete from apinews.org")
                 
                 let response: SourcesResponse = try JSONDecoder().decode(SourcesResponse.self, from: data)
                 NewsData.sources = response.sources
@@ -70,9 +69,7 @@ class NewsAPI {
                 }
                 
                 NewsData.newsFeed = tempArray
-//                print("api NEWS call complete from apinews.org")
-//                print("the country code is " + countryCode)
-                print("triggering observer")
+                
                 NotificationCenter.default.post(name: Notification.Name("NewsFeedUpdated"), object: nil)
                 
                 

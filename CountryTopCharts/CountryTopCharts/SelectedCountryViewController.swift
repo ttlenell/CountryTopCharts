@@ -48,11 +48,6 @@ class SelectedCountryViewController: UIViewController {
         
   
         
-        
-        
-
-        
-        
     }
     
     @objc func newsClickableViewClicked() {
