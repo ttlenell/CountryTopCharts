@@ -64,10 +64,12 @@ class NewsPresenter {
     func cacheArticle(articles: [ArticleResponse]) {
         
         guard let countryCode = self.countryCode else { return }
+        
+//        Cache.storeNewsFeedInCache(countryCode)
         let objectToCache = ArticleHolder(articles: articles)
         
         Cache.cache.setObject(objectToCache, forKey: NSString(string: countryCode))
-        print("CACHE = ", Cache.cache.object(forKey: NSString(string: countryCode)))
+        
 
     }
     
