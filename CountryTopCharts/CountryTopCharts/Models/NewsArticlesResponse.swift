@@ -34,7 +34,7 @@ struct ArticleSourceResponse: Codable {
 }
 
 class ArticleHolder: NSObject {
-    let articles: [ArticleResponse]
+    var articles: [ArticleResponse]
     
     init(articles: [ArticleResponse]) {
         self.articles = articles

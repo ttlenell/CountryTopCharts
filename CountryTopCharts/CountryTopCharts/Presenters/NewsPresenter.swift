@@ -16,7 +16,7 @@ class NewsPresenter {
     
     var countryCode: String?
     
-    private let cache = NSCache<NSString, ArticleHolder>()
+//    private let cache = NSCache<NSString, ArticleHolder>()
     
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(getNewsWithConnection), name: Notification.Name("isConnected"), object: nil)
@@ -36,14 +36,20 @@ class NewsPresenter {
     
     @objc func getNewsWithNoConnection() {
         
-        guard let countryCode = self.countryCode else { return }
+        guard let countryCode = countryCode else { return }
 
-        if let cachedArticle = self.cache.object(forKey: NSString(string: countryCode)) {
+        if let cachedArticle = Cache.cache.object(forKey: NSString(string: countryCode)) {
             print("Using a cached image for item: \(countryCode)")
             NewsData.newsFeed = cachedArticle.articles
+            updateNewsFeed()
+           
+
+        } else {
+            NewsData.newsFeed = []
+            updateNewsFeed()
         }
         
-        updateNewsFeed()
+        
         
     }
     
@@ -60,7 +66,10 @@ class NewsPresenter {
         guard let countryCode = self.countryCode else { return }
         let objectToCache = ArticleHolder(articles: articles)
         
-        self.cache.setObject(objectToCache, forKey: NSString(string: countryCode))
+        Cache.cache.setObject(objectToCache, forKey: NSString(string: countryCode))
+        print("CACHE = ", Cache.cache.object(forKey: NSString(string: countryCode)))
+
     }
     
 }
+
