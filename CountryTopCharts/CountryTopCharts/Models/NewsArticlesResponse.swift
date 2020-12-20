@@ -15,7 +15,8 @@ struct ArticlesResponse: Codable {
   
 }
 
-struct ArticleResponse: Codable {
+struct ArticleResponse: Codable, Comparable {
+    
     // specific article
     var author: String?
     var title: String?
@@ -25,6 +26,14 @@ struct ArticleResponse: Codable {
     var url: String?
     var urlToImage: String?
     var source: ArticleSourceResponse?
+    
+    static func < (lhs: ArticleResponse, rhs: ArticleResponse) -> Bool {
+        return lhs.title! < rhs.title!
+    }
+    
+    static func == (lhs: ArticleResponse, rhs: ArticleResponse) -> Bool {
+        return lhs.title! == rhs.title!
+    }
     
 }
 
