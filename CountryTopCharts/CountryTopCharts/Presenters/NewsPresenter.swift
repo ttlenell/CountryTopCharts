@@ -52,9 +52,8 @@ class NewsPresenter {
     func updateNewsFeed() {
         guard let tempNewsFeed = NewsData.newsFeed else {return}
         
-        let sortingUtility = SortingUtility()
 
-        let sortedNewsFeed = sortingUtility.bubbleSortNewsFeedAscending(newsFeed: tempNewsFeed)
+        let sortedNewsFeed = SortingUtility.bubbleSortNewsFeedAscending(newsFeed: tempNewsFeed)
         
         cacheArticle(articles: sortedNewsFeed)
         
