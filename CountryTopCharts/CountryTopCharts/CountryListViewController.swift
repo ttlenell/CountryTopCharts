@@ -60,7 +60,6 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("CountriesUpdated"), object: nil)
         
-        
         // Encyption playground
         let hashedString = hashItem(item: "hej")
         let hashedString2 = hashItem(item: "hej")
@@ -77,6 +76,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func hashItem(item: String) -> Int {
+
       var hasher = Hasher()
       item.hash(into: &hasher)
       return hasher.finalize()
@@ -89,6 +89,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     func decodeString(dataToDecode: Data) -> String? {
         return String(data: dataToDecode, encoding: String.Encoding.utf8)
     }
+
     
     
     @objc func countriesUpdatedNotificationRecieved () {
