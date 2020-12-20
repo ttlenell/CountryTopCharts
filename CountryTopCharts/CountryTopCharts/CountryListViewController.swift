@@ -59,9 +59,20 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("CountriesUpdated"), object: nil)
         
+        let hashValue = hashItem(item: "blablbala")
+        print("hash is =", hashValue)
         
         
     }
+    
+    func hashItem(item: String) -> Int {
+        var hasher = Hasher()
+        item.hash(into: &hasher)
+        return hasher.finalize()
+        
+    }
+    
+    
     
     @objc func countriesUpdatedNotificationRecieved () {
         
