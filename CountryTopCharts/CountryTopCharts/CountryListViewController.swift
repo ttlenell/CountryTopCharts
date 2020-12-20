@@ -37,6 +37,7 @@
 //    Retry funktionalitet vid rimlig error code (Om vi har tid)
 
 import UIKit
+import CryptoKit
 
 class CountryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -60,8 +61,35 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("CountriesUpdated"), object: nil)
         
         
+        // Encyption playground
+        let hashedString = hashItem(item: "hej")
+        let hashedString2 = hashItem(item: "hej")
+        let stringToEncode = "tjena"
+        let encodedPassword = encodeString(stringToEncode: stringToEncode)
+        let decodedPassword = decodeString(dataToDecode: encodedPassword!)
+        
+        print("hashed:", hashedString)
+        print("hashed2:", hashedString2)
+        
+        print("encoded:", encodedPassword!.base64EncodedString())
+        print("decoded:", decodedPassword!)
         
     }
+    
+    func hashItem(item: String) -> Int {
+      var hasher = Hasher()
+      item.hash(into: &hasher)
+      return hasher.finalize()
+    }
+    
+    func encodeString(stringToEncode: String) -> Data? {
+        return stringToEncode.data(using: String.Encoding.utf8)
+    }
+    
+    func decodeString(dataToDecode: Data) -> String? {
+        return String(data: dataToDecode, encoding: String.Encoding.utf8)
+    }
+    
     
     @objc func countriesUpdatedNotificationRecieved () {
         
