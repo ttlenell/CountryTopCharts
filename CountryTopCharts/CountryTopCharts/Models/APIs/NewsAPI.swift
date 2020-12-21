@@ -15,7 +15,7 @@ class NewsAPI {
     
     
     
-    func getSources() {
+    func getSources(_ closure: @escaping (_ sources: [Source]) -> Void) {
         let sourcesUrlString: String = "https://newsapi.org/v2/sources?apiKey=d1c7748715cc482fb7f9908d73101c81"
         
         let request = NSMutableURLRequest(url: NSURL(string: sourcesUrlString)! as URL)
@@ -33,9 +33,12 @@ class NewsAPI {
             do {
                 
                 let response: SourcesResponse = try JSONDecoder().decode(SourcesResponse.self, from: data)
-                NewsData.sources = response.sources
-   
-                NotificationCenter.default.post(name: Notification.Name("SourcesUpdated"), object: nil)
+                
+                guard let sources = response.sources else {
+                    return
+                }
+                
+                closure(sources)
                 
             }
             catch let jsonError as NSError {
@@ -46,7 +49,7 @@ class NewsAPI {
         
     }
     
-    func getNews(countryCode: String) {
+    func getNews(countryCode: String, _ closure: @escaping (_ articles: [ArticleResponse]) -> Void ) {
         let newsUrlString: String = "https://newsapi.org/v2/top-headlines?country=" + countryCode + "&apiKey=d1c7748715cc482fb7f9908d73101c81"
         let request = NSMutableURLRequest(url: NSURL(string: newsUrlString)! as URL)
         let session = URLSession.shared
@@ -68,14 +71,14 @@ class NewsAPI {
                 for article in response.articles! {
 
                     if tempArray.count < 10 {
-                        tempArray.append(article)
+                        if article.title != nil && article.urlToImage != nil {
+                            
+                            tempArray.append(article)
+                        }
                     }
                 }
                 
-                NewsData.newsFeed = tempArray
-                
-                NotificationCenter.default.post(name: Notification.Name("NewsFeedUpdated"), object: nil)
-                
+                closure(tempArray)
                 
             }
             catch let jsonError as NSError {

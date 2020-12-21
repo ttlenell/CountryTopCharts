@@ -9,5 +9,5 @@
 import Foundation
 
 class CountriesData {
-    static var countries: [CountryResponse]?
+    //static var countries: [CountryResponse]?
 }

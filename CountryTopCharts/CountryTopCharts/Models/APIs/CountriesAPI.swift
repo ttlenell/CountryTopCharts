@@ -10,9 +10,7 @@ import Foundation
 
 class CountriesAPI {
     
-    
-    
-    func getCountries() {
+    func getCountries(_ closure: @escaping (_ countries: [CountryResponse]) -> Void) {
         
         let urlString: String = "https://restcountries.eu/rest/v2/all"
         
@@ -32,10 +30,9 @@ class CountriesAPI {
             //inte error!
             guard let data = data else {return}
             do {
-                
-                CountriesData.countries = try JSONDecoder().decode([CountryResponse].self, from: data)
-                
-                NotificationCenter.default.post(name: Notification.Name("CountriesUpdated"), object: nil)
+                let countries = try JSONDecoder().decode([CountryResponse].self, from: data)
+
+                closure(countries)
                 
             }
             catch let jsonError as NSError {

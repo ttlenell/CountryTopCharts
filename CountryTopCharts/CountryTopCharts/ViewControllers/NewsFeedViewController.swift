@@ -30,8 +30,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @objc func newsFeedUpdatedNotificationRecieved () {
-        print("observer triggered")
-        newsPresenter.updateNewsFeed()
         
         DispatchQueue.main.async {
             self.newsTableView.reloadData()
@@ -47,9 +45,8 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let article = newsPresenter.newsFeed[indexPath.row]
         
-        guard let newsFeed = newsPresenter.newsFeed else { return }
-        let article = newsFeed[indexPath.row]
         guard let urlString = article.url else { return }
 
         tableView.deselectRow(at: indexPath, animated: true)
@@ -60,25 +57,17 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let newsFeed = newsPresenter.newsFeed else {
-
-            return 0
-        }
-        return newsFeed.count
+        
+        return newsPresenter.newsFeed.count
     
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
+         
+        guard let urlToImage = newsPresenter.newsFeed[indexPath.row].urlToImage else { return cell }
         
-         guard let newsFeed = newsPresenter.newsFeed else {
-            return cell
-         }
-        guard let urlToImage = newsFeed[indexPath.row].urlToImage else { return cell }
-//        guard let source = newsFeed[indexPath.row].source else { return cell }
-//        guard let sourceName = source.name else { return cell }
-        
-        cell.title.text = newsFeed[indexPath.row].title
+        cell.title.text = newsPresenter.newsFeed[indexPath.row].title
         cell.articleImageView.sd_setImage(with: URL(string: urlToImage), completed: nil)
         
         return cell

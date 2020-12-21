@@ -10,6 +10,6 @@ import Foundation
 
 
 class NewsData {
-    static var sources: [Source]?
+    //static var sources: [Source]?
     static var newsFeed: [ArticleResponse]?
 }
