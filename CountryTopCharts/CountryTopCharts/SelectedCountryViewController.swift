@@ -32,7 +32,7 @@ class SelectedCountryViewController: UIViewController {
         countryNameLabel.numberOfLines = 4
         
         // Flag style rules
-        self.countryFlagImageView.sd_setImage(with: URL(string: country.flag!), completed: nil)
+        self.countryFlagImageView.sd_setImage(with: URL(string: country.flag!), placeholderImage: UIImage(named: "imagenotfound.jpg"), completed: nil)
         countryFlagImageView.layer.borderColor = UIColor.black.cgColor
         countryFlagImageView.layer.borderWidth = 0.5
         
