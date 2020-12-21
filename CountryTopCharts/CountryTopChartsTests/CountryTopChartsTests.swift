@@ -12,9 +12,8 @@ import XCTest
 class CountryTopChartsTests: XCTestCase {
 
     func testSortingAlgorithm() {
-        let sortingUtility = SortingUtility()
         
-        var array = [ArticleResponse(title: "t"),
+        let array = [ArticleResponse(title: "t"),
                     ArticleResponse(title: "b"),
                     ArticleResponse(title: "c"),
                     ArticleResponse(title: "d"),
@@ -27,21 +26,79 @@ class CountryTopChartsTests: XCTestCase {
                     ArticleResponse(title: "k"),
                     ArticleResponse(title: "a")]
         
-        let sortedArray = sortingUtility.bubbleSortNewsFeedAscending(newsFeed: array)
+        let sortedArray = SortingUtility.bubbleSortNewsFeedAscending(newsFeed: array)
         
         XCTAssertLessThan(sortedArray.first!, sortedArray.last!)
     }
     
     func testEncryption() {
+        let sut = CountryListViewController()
         
+        let string = "Password123"
+        
+        guard let encodedString = sut.encodeString(stringToEncode: string) else { return }
+        
+        guard let decodedString = sut.decodeString(dataToDecode: encodedString) else { return }
+        
+        XCTAssertEqual(string, decodedString)
     }
     
     func testCountriesApiCallSpeed() {
         
+        let urlString: String = "https://restcountries.eu/rest/v2/all"
+        
+        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
+        let session = URLSession.shared
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let startDate = Date()
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+        if (error != nil) {
+            //error!
+            
+            
+         } else {
+            //inte error!
+            
+            do {
+                let executionTime = Date().timeIntervalSince(startDate)
+                print("countrieS exe time: ",  executionTime)
+                XCTAssertLessThan(executionTime, 1)
+            }
+            
+            }})
+        task.resume()
     }
 
     func testSourcesApiCallSpeed() {
-        
+        let sourcesUrlString: String = "https://newsapi.org/v2/sources?apiKey=d1c7748715cc482fb7f9908d73101c81"
+            
+        let request = NSMutableURLRequest(url: NSURL(string: sourcesUrlString)! as URL)
+        let session = URLSession.shared
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+        let startDate = Date()
+
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+             if (error != nil) {
+                
+             }
+        else {
+             //inte error!
+        do {
+                
+            let executionTime = Date().timeIntervalSince(startDate)
+            print("sources exe time: ",  executionTime)
+            XCTAssertLessThan(executionTime, 1)
+                 
+            }
+            }})
+        task.resume()
     }
 
 }

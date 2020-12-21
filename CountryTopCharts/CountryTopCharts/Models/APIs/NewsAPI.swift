@@ -11,11 +11,13 @@ import Foundation
 class NewsAPI {
     
 //    static var news: News?
-    let sourcesUrlString: String = "https://newsapi.org/v2/sources?apiKey=d1c7748715cc482fb7f9908d73101c81"
+    
     
     
     
     func getSources() {
+        let sourcesUrlString: String = "https://newsapi.org/v2/sources?apiKey=d1c7748715cc482fb7f9908d73101c81"
+        
         let request = NSMutableURLRequest(url: NSURL(string: sourcesUrlString)! as URL)
         let session = URLSession.shared
         request.httpMethod = "GET"
@@ -40,7 +42,9 @@ class NewsAPI {
               print("JSON decode failed: \(jsonError.localizedDescription)")
             }
             }})
-        task.resume() }
+        task.resume()
+        
+    }
     
     func getNews(countryCode: String) {
         let newsUrlString: String = "https://newsapi.org/v2/top-headlines?country=" + countryCode + "&apiKey=d1c7748715cc482fb7f9908d73101c81"
