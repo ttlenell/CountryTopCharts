@@ -28,6 +28,7 @@ class NewsPresenter {
     @objc func getNewsWithConnection() {
 
         newsAPI.getNews(countryCode: countryCode!)
+        // stops monitoring the network when everything has loaded successfully
         networkMonitor.monitor.cancel()
         
     }
@@ -64,6 +65,7 @@ class NewsPresenter {
         let objectToCache = ArticleHolder(articles: articles)
         
         Cache.cache.setObject(objectToCache, forKey: NSString(string: countryCode))
+        Cache.cache.countLimit = 10
         
 
     }
