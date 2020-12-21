@@ -73,32 +73,4 @@ class CountryTopChartsTests: XCTestCase {
         task.resume()
     }
 
-    func testSourcesApiCallSpeed() {
-        let sourcesUrlString: String = "https://newsapi.org/v2/sources?apiKey=d1c7748715cc482fb7f9908d73101c81"
-            
-        let request = NSMutableURLRequest(url: NSURL(string: sourcesUrlString)! as URL)
-        let session = URLSession.shared
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-        let startDate = Date()
-
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-             if (error != nil) {
-                
-             }
-        else {
-             //inte error!
-        do {
-                
-            let executionTime = Date().timeIntervalSince(startDate)
-            print("sources exe time: ",  executionTime)
-            XCTAssertLessThan(executionTime, 1)
-                 
-            }
-            }})
-        task.resume()
-    }
-
 }
