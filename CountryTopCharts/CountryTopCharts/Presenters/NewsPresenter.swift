@@ -12,7 +12,7 @@ class NewsPresenter {
     let networkMonitor = NetworkMonitor()
     let newsAPI = NewsAPI()
    
-    var newsFeed: [ArticleResponse]?
+    var newsFeed = [ArticleResponse]()
     
     var countryCode: String?
     
@@ -27,34 +27,40 @@ class NewsPresenter {
     
     @objc func getNewsWithConnection() {
 
-        newsAPI.getNews(countryCode: countryCode!)
+        newsAPI.getNews(countryCode: countryCode!) { articles in
+            
+            self.updateNewsFeed(articles)
+            
+        }
+        
         // stops monitoring the network when everything has loaded successfully
         networkMonitor.monitor.cancel()
         
     }
     
     @objc func getNewsWithNoConnection() {
-        
+
         guard let countryCode = countryCode else { return }
 
         if let cachedArticle = Cache.newsFeedCache.object(forKey: NSString(string: countryCode)) {
             print("Using a cached image for item: \(countryCode)")
-            NewsData.newsFeed = cachedArticle.articles
-            updateNewsFeed()
+            
+            updateNewsFeed(cachedArticle.articles)
         } else {
-            NewsData.newsFeed = []
+            
             updateNewsFeed()
         }
     }
     
-    func updateNewsFeed() {
-        guard let tempNewsFeed = NewsData.newsFeed else {return}
+    func updateNewsFeed(_ articles: [ArticleResponse] = [ArticleResponse]()) {
 
-        let sortedNewsFeed = SortingUtility.bubbleSortNewsFeedAscending(newsFeed: tempNewsFeed)
+        let sortedNewsFeed = SortingUtility.bubbleSortNewsFeedAscending(newsFeed: articles)
         
         cacheArticle(articles: sortedNewsFeed)
         
         self.newsFeed = sortedNewsFeed
+        
+        NotificationCenter.default.post(name: Notification.Name("NewsFeedUpdated"), object: nil)
     }
     
     func cacheArticle(articles: [ArticleResponse]) {

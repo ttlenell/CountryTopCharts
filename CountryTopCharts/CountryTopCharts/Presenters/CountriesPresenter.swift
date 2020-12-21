@@ -11,18 +11,15 @@ import Foundation
 class CountriesPresenter {
     
     let countriesAPI = CountriesAPI()
-    var countries: [CountryResponse]? = CountriesData.countries
+    var countries = [CountryResponse]()
+    var sources = [Source]()
     
-
     let newsAPI = NewsAPI()
-    var sources: [Source]? = NewsData.sources
-    
-    init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(runGetCountries), name: Notification.Name("SourcesUpdated"), object: nil)
-    }
     
     @objc func runGetCountries() {
+        
         getCountries()
+        
     }
     
     func getAcceptedCountries() {
@@ -31,21 +28,31 @@ class CountriesPresenter {
     }
     
     func getCountries() {
-        countriesAPI.getCountries()
+        
+        countriesAPI.getCountries() { countries in
+            
+            self.updateCountries(countries: countries)
+            
+        }
     }
     
     func getSources() {
         
-        newsAPI.getSources()
+        newsAPI.getSources() { sources in
+            
+            self.sources = sources
+            
+            self.getCountries()
+        }
     }
     
-    func updateCountries() {
+    func updateCountries(countries: [CountryResponse]) {
         var acceptedCountries: [CountryResponse] = []
-    
+        
         // filter countries to only show those
         // that exist in sources
-        for country in CountriesData.countries! {
-            for source in NewsData.sources!{
+        for country in countries {
+            for source in self.sources{
                 if country.alpha2Code?.lowercased() == source.country?.lowercased() {
                     var countryExist = false
                     for acceptedCountry in acceptedCountries {
@@ -53,9 +60,11 @@ class CountriesPresenter {
                             countryExist = true
                         }
                     }
+                    
                     if !countryExist {
                         var countryToAdd = country
                         countryToAdd.alpha2Code = countryToAdd.alpha2Code?.lowercased()
+                        print("adding country to accepted")
                         acceptedCountries.append(countryToAdd)
                     }
                     
@@ -63,8 +72,9 @@ class CountriesPresenter {
             }
         }
         
-        CountriesData.countries = acceptedCountries
         self.countries = acceptedCountries
+        
+        NotificationCenter.default.post(name: Notification.Name("CountriesUpdated"), object: nil)
       
     }
     

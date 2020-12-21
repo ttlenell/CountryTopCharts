@@ -16,7 +16,7 @@
 //    Om internet inte finns så hämtar vi från cache och visar
 //    upp tom array om cache e tom.
 
-// 3: Unit tests för beteeneden: (VIKTIGT!)
+// 3: Unit tests för beteeneden: *CHECK*
 //    Vad kan vi testa i vårt fall? api calls? NSTimer för att testa hastighet,
 //    test för sorting algoritm och kryptering *CHECK*✅
 
@@ -95,8 +95,6 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     @objc func countriesUpdatedNotificationRecieved () {
         
-        countriesPresenter.updateCountries()
-        
         DispatchQueue.main.async {
             self.countriesTableView.reloadData()
         }
@@ -113,15 +111,10 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToSelectedCountry" {
-            
+
             let destinationVC = segue.destination as? SelectedCountryViewController
             
-            guard let countries = countriesPresenter.countries else {
-                return
-            }
-            
-            destinationVC?.selectedCountryPresenter.country = countries[selectedRow]
-            
+            destinationVC?.selectedCountryPresenter.country = countriesPresenter.countries[selectedRow]
         }
     }
     
@@ -134,21 +127,17 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let countries = countriesPresenter.countries else {
-            print("returning 0 because countries is nil")
-            return 0
-            
-        }
         
-        return countries.count
+        return countriesPresenter.countries.count
+        
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = countriesTableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell", for: indexPath) as! CountryTableViewCell
-        guard let countries = countriesPresenter.countries else {
-            return cell
-        }
-        cell.countryLabel.text = countries[indexPath.row].name
+        
+        cell.countryLabel.text = countriesPresenter.countries[indexPath.row].name
+        
         return cell
     }
 }
