@@ -12,6 +12,7 @@ class Cache {
     
     static let cache = NSCache<NSString, ArticleHolder>()
     
+    
     init() {
         
     }

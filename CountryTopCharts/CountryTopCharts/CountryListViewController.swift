@@ -11,33 +11,33 @@
 //    Använder observer pattern, varför? (VIKTIGT!)
 //    Använder singletons, varför? (VIKTIGT!)
 
-// 2: Relation mellan online data och cache: *CHECK*
+// 2: Relation mellan online data och cache: *CHECK*✅
 //    Vi hämtar från api om internet finns och sparar i cache
 //    Om internet inte finns så hämtar vi från cache och visar
 //    upp tom array om cache e tom.
 
 // 3: Unit tests för beteeneden: (VIKTIGT!)
 //    Vad kan vi testa i vårt fall? api calls? NSTimer för att testa hastighet,
-//    test för sorting algoritm och kryptering *CHECK*
+//    test för sorting algoritm och kryptering *CHECK*✅
 
 // 4: Exempel från profiler före/efter, stresstest? (VIKTIGT!) ( Att kunna reflektera över detta )
-//    Vi använder NWPathMonitor för att se om device är connected eller ej *CHECK*
+//    Vi använder NWPathMonitor för att se om device är connected eller ej *CHECK*✅
 //    Reflektera över data från exempelvis energy test osv
 
 // 5: Encyption / sortering:
 //    Sortering: Kan sortera NewsFeed på datum *CHECK*
-//    Kryptering? låtsasfunktion, testa olika typer av hashing och reflektera över skillnader i output *CHECK*
+//    Kryptering? låtsasfunktion, testa olika typer av hashing och reflektera över skillnader i output *CHECK*✅
 
 //    Använda db? (Om vi har tid) Kunna reflektera över skillnaden på document based och SQL? (VIKTIGT!)
 
 //    Skapa egna async anrop för att påvisa kunskap om threads? (Om vi har tid)
 
-//    Error handling i api calls.
-//    Enkel error handling (typ logga error code) (VIKTIGT!)
-//    Retry funktionalitet vid rimlig error code (Om vi har tid)
+//    Error handling i api calls. ✅
+//    Enkel error handling (typ logga error code) (VIKTIGT!) ✅ loggar error description
+//    Retry funktionalitet vid rimlig error code (Om vi har tid) Behövs när vi hämtar hem countries
 
-//    Kolla om SDWebImage cachar bilder ( VIKTIGT! )
-//    Regler för cache ( VIKTIGT! )
+//    Kolla om SDWebImage cachar bilder ( VIKTIGT! ). Den cachear, ska ta reda på hur länge/hur stora filer
+//    Regler för cache ( VIKTIGT! ) sätta hur länge/ hur stora filer?
 
 import UIKit
 import CryptoKit
