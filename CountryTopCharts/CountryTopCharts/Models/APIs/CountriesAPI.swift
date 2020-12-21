@@ -10,34 +10,39 @@ import Foundation
 
 class CountriesAPI {
     
-    let urlString: String = "https://restcountries.eu/rest/v2/all"
+    
     
     func getCountries() {
-    let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
-    let session = URLSession.shared
-    request.httpMethod = "GET"
-    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.addValue("application/json", forHTTPHeaderField: "Accept")
-     let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-     if (error != nil) {
-        //error!
         
+        let urlString: String = "https://restcountries.eu/rest/v2/all"
         
-     } else {
-        //inte error!
-        guard let data = data else {return}
-        do {
+        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
+        let session = URLSession.shared
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+         if (error != nil) {
+            //error!
             
-            CountriesData.countries = try JSONDecoder().decode([CountryResponse].self, from: data)
             
-            NotificationCenter.default.post(name: Notification.Name("CountriesUpdated"), object: nil)
-            
-        }
-        catch let jsonError as NSError {
-          print("JSON decode failed: \(jsonError.localizedDescription)")
-        }
-        }})
-    task.resume() }
+         } else {
+            //inte error!
+            guard let data = data else {return}
+            do {
+                
+                CountriesData.countries = try JSONDecoder().decode([CountryResponse].self, from: data)
+                
+                NotificationCenter.default.post(name: Notification.Name("CountriesUpdated"), object: nil)
+                
+            }
+            catch let jsonError as NSError {
+              print("JSON decode failed: \(jsonError.localizedDescription)")
+            }
+            }})
+        task.resume()
+        
+    }
     
     
     

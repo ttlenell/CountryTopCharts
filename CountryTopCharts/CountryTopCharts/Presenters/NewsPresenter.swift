@@ -44,14 +44,10 @@ class NewsPresenter {
             NewsData.newsFeed = []
             updateNewsFeed()
         }
-        
-        
-        
     }
     
     func updateNewsFeed() {
         guard let tempNewsFeed = NewsData.newsFeed else {return}
-        
 
         let sortedNewsFeed = SortingUtility.bubbleSortNewsFeedAscending(newsFeed: tempNewsFeed)
         
