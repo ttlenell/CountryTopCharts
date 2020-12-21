@@ -54,6 +54,13 @@ class SelectedCountryViewController: UIViewController {
         performSegue(withIdentifier: "segueToNewsFeed", sender: self)
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+        selectedCountryPresenter.clearNewsFeedCache()
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToNewsFeed" {
             

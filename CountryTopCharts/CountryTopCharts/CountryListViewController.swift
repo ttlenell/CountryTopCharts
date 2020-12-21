@@ -92,8 +92,6 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     func decodeString(dataToDecode: Data) -> String? {
         return String(data: dataToDecode, encoding: String.Encoding.utf8)
     }
-
-    
     
     @objc func countriesUpdatedNotificationRecieved () {
         
@@ -105,6 +103,12 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+        countriesPresenter.clearNewsFeedCache()
+        
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

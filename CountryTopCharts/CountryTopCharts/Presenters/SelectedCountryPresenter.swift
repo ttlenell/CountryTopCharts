@@ -12,4 +12,9 @@ class SelectedCountryPresenter {
     
     var country: CountryResponse? = CountryResponse()
     
+    func clearNewsFeedCache() {
+        
+        Cache.clearNewsFeedCache()
+        
+    }
 }

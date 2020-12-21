@@ -37,7 +37,7 @@ class NewsPresenter {
         
         guard let countryCode = countryCode else { return }
 
-        if let cachedArticle = Cache.cache.object(forKey: NSString(string: countryCode)) {
+        if let cachedArticle = Cache.newsFeedCache.object(forKey: NSString(string: countryCode)) {
             print("Using a cached image for item: \(countryCode)")
             NewsData.newsFeed = cachedArticle.articles
             updateNewsFeed()
@@ -61,13 +61,14 @@ class NewsPresenter {
         
         guard let countryCode = self.countryCode else { return }
         
-//        Cache.storeNewsFeedInCache(countryCode)
-        let objectToCache = ArticleHolder(articles: articles)
+        Cache.storeNewsFeedInCache(forKey: countryCode, articles: articles)
         
-        Cache.cache.setObject(objectToCache, forKey: NSString(string: countryCode))
-        Cache.cache.countLimit = 10
+    }
+    
+    func clearNewsFeedCache() {
         
-
+        Cache.clearNewsFeedCache()
+        
     }
 
 }

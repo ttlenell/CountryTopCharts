@@ -10,19 +10,23 @@ import Foundation
 
 class Cache {
     
-    static let cache = NSCache<NSString, ArticleHolder>()
+    static let newsFeedCache = NSCache<NSString, ArticleHolder>()
     
     
     init() {
-        
+        Cache.newsFeedCache.countLimit = 10
+        Cache.newsFeedCache.totalCostLimit
     }
     
-//    func storeNewsFeedInCache(forKey key: String, articles: [ArticleResponse]) {
+    class func storeNewsFeedInCache(forKey key: String, articles: [ArticleResponse]) {
         
+        let objectToCache = ArticleHolder(articles: articles)
         
-//        let objectToCache = ArticleHolder(articles: articles)
-//        
-//        Cache.cache.setObject(objectToCache, forKey: NSString(string: key))
-//    }
+        Cache.newsFeedCache.setObject(objectToCache, forKey: NSString(string: key))
+    }
+    
+    class func clearNewsFeedCache() {
+        Cache.newsFeedCache.removeAllObjects()
+    }
     
 }
