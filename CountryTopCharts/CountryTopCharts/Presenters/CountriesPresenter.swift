@@ -67,4 +67,10 @@ class CountriesPresenter {
         self.countries = acceptedCountries
       
     }
+    
+    func clearNewsFeedCache() {
+        
+        Cache.clearNewsFeedCache()
+        
+    }
 }

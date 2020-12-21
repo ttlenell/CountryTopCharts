@@ -39,6 +39,12 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+        newsPresenter.clearNewsFeedCache()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         

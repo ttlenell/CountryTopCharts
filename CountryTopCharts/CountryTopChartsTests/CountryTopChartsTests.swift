@@ -67,6 +67,7 @@ class CountryTopChartsTests: XCTestCase {
                 let executionTime = Date().timeIntervalSince(startDate)
                 print("countrieS exe time: ",  executionTime)
                 XCTAssertLessThan(executionTime, 1)
+                XCTAssert
             }
             
             }})
