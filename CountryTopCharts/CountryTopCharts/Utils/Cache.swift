@@ -15,7 +15,7 @@ class Cache {
     
     init() {
         Cache.newsFeedCache.countLimit = 10
-        Cache.newsFeedCache.totalCostLimit
+        //Cache.newsFeedCache.totalCostLimit = ??
     }
     
     class func storeNewsFeedInCache(forKey key: String, articles: [ArticleResponse]) {
