@@ -32,7 +32,6 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         // Encyption playground
         
-        // Kör encyption async på egenskapad tråd
         DispatchQueue.global(qos: .default).async {
             let hashedString = self.hashItem(item: "hej")
             let hashedString2 = self.hashItem(item: "hej")
@@ -40,7 +39,6 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
             let encodedPassword = self.encodeString(stringToEncode: stringToEncode)
             let decodedPassword = self.decodeString(dataToDecode: encodedPassword!)
             
-            // Printar på main thread
             DispatchQueue.main.async {
                 print("hashed:", hashedString)
                 print("hashed2:", hashedString2)
