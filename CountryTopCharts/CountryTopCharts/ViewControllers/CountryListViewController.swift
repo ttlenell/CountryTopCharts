@@ -33,11 +33,11 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         // Encyption playground
         
         DispatchQueue.global(qos: .default).async {
-            let hashedString = self.hashItem(item: "hej")
-            let hashedString2 = self.hashItem(item: "hej")
+            let hashedString = EncyptionUtility.hashItem(item: "hej")
+            let hashedString2 = EncyptionUtility.hashItem(item: "hej")
             let stringToEncode = "tjena"
-            let encodedPassword = self.encodeString(stringToEncode: stringToEncode)
-            let decodedPassword = self.decodeString(dataToDecode: encodedPassword!)
+            let encodedPassword = EncyptionUtility.encodeString(stringToEncode: stringToEncode)
+            let decodedPassword = EncyptionUtility.decodeString(dataToDecode: encodedPassword!)
             
             DispatchQueue.main.async {
                 print("hashed:", hashedString)
@@ -47,21 +47,6 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
                 print("decoded:", decodedPassword!)
             }
         }
-    }
-    
-    func hashItem(item: String) -> Int {
-
-      var hasher = Hasher()
-      item.hash(into: &hasher)
-      return hasher.finalize()
-    }
-    
-    func encodeString(stringToEncode: String) -> Data? {
-        return stringToEncode.data(using: String.Encoding.utf8)
-    }
-    
-    func decodeString(dataToDecode: Data) -> String? {
-        return String(data: dataToDecode, encoding: String.Encoding.utf8)
     }
     
     @objc func countriesUpdatedNotificationRecieved () {
