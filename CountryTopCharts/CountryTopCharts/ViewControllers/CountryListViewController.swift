@@ -40,11 +40,11 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
             let decodedPassword = EncyptionUtility.decodeString(dataToDecode: encodedPassword!)
             
             DispatchQueue.main.async {
-                print("hashed:", hashedString)
-                print("hashed2:", hashedString2)
+                print("!!! hashed:", hashedString)
+                print("!!! hashed2:", hashedString2)
                 
-                print("encoded:", encodedPassword!.base64EncodedString())
-                print("decoded:", decodedPassword!)
+                print("!!! encoded:", encodedPassword!.base64EncodedString())
+                print("!!! decoded:", decodedPassword!)
             }
         }
     }

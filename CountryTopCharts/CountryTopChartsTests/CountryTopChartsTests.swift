@@ -32,13 +32,13 @@ class CountryTopChartsTests: XCTestCase {
     }
     
     func testEncryption() {
-        let sut = CountryListViewController()
+        
         
         let string = "Password123"
         
-        guard let encodedString = sut.encodeString(stringToEncode: string) else { return }
+        guard let encodedString = EncyptionUtility.encodeString(stringToEncode: string) else { return }
         
-        guard let decodedString = sut.decodeString(dataToDecode: encodedString) else { return }
+        guard let decodedString = EncyptionUtility.decodeString(dataToDecode: encodedString) else { return }
         
         XCTAssertEqual(string, decodedString)
     }
