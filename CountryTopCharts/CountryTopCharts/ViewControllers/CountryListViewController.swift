@@ -17,6 +17,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     let countriesPresenter = CountriesPresenter()
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +29,16 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
         countriesPresenter.getAcceptedCountries()
         
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(countriesUpdatedNotificationRecieved), name: Notification.Name("CountriesUpdated"), object: nil)
         
         // Encyption playground
+        
+       let encrypted = EncyptionUtility.encrypt(stringToEncrypt: "tjolahopp")
+       let decrypted =  EncyptionUtility.decrypt(dataToDecrypt: encrypted)
+        print("?? IV:", EncyptionUtility.iv)
+        print("??", decrypted)
         
         DispatchQueue.global(qos: .default).async {
             let hashedString = EncyptionUtility.hashItem(item: "hej")
